@@ -1,21 +1,23 @@
 export const profile = {
-  name: "Tim",
+  name: "Kelvin",
 
   /** Roboto Mono 16 / bold / uppercase — sits above the display heading */
   tagline:
-    "Design systems, product design, illustration, design engineering, and shipping quality at speed.",
+    "Product design, design systems, photography, lion dance, and shipping quality at speed.",
 
   /** Manrope 40 — hero display heading */
-  headline: "Hi, I'm Tim.",
+  headline: "Hi, I'm Kelvin.",
 
   /** Manrope 40 — hero display body (follows headline) */
-  intro:
-    "I’m a designer with 10+ years across product design and systems. At WiseTech Global, I work on the web framework and multi-brand design system that helps teams ship fast at scale. I also consult, using AI-enabled workflows to close the gap between design and production.",
-
+  introHighlight: "From AutoCAD to Figma.",
+intro: [
+  "Crafting exceptional experiences from the foundations up.",
+  "I build products people can use and systems teams can rely on. Whatever the brief needs: research, design, ops, delivery, I'm here to deliver results.",
+],
   /** About section — Roboto 16 body copy */
   about: [
-    "I’ve spent the last decade and a bit designing across just about every environment you can imagine; from agency work to B2C products, and now enterprise logistics. Seeing that range has made one thing really clear to me: the best design is desirable. It feels good to use and it reduces friction.",
-    "These days I’m focused on the systems and foundations that make that possible at scale, especially when multiple teams are shipping fast and the product surface area keeps expanding. I work closely with eng, product, and I’ve got AI deeply integrated into how I explore, iterate, and ship. The barrier beyond traditional design handoff has never been lower, and I’m here for it.",
-    "I’m available for consulting from advisory through to hands-on delivery, particularly around UI foundations, product cohesion, and raising the quality bar across complex interfaces.",
+    "Ten years across design and sales, most of them deep in UX. Trained as an architect, I truly believe in the words “form follows function” which is a core tenant of UX. I work from the foundations up, designing systems from scratch and managing them so teams move faster with less friction between idea and delivery.",
+    "At Fitness Passport I built and shipped a design system from the ground up across product and tech, ensuring velocity, consistency and scalability. At Reece I led UX across mutiple teams simultaneously, ran research operations, and helped define the design system for the maX platform across web, Android, and iOS.",
+    "Outside of design you can find me snowboarding, lion dancing, taking photos  or painting little toy soldiers."
   ],
 };

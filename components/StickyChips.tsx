@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import ThemeToolbar from "./ThemeToolbar";
 
 const navItems = [
@@ -29,7 +30,15 @@ function getThemeShadow(): string {
 }
 
 export default function StickyChips() {
-  const [activeSection, setActiveSection] = useState("home");
+  const pathname = usePathname();
+  const router = useRouter();
+
+  // Detect if we are on a work/case study page
+  const isWorkPage = pathname.startsWith("/work");
+
+  const [activeSection, setActiveSection] = useState(
+    isWorkPage ? "experience" : "home"
+  );
   const [indicator, setIndicator] = useState<IndicatorStyle>({ left: 0, width: 0 });
   const [scrolled, setScrolled] = useState(false);
   const [navShadow, setNavShadow] = useState("none");
@@ -47,7 +56,13 @@ export default function StickyChips() {
   const [desktopIndicator, setDesktopIndicator] = useState<IndicatorStyle>({ left: 0, width: 0 });
   const desktopBarRef = useRef<HTMLDivElement>(null);
 
-  /* ── Track scroll position for shadow + home detection ─── */
+  /* ── Lock to experience on work pages ── */
+  useEffect(() => {
+    if (isWorkPage) {
+      setActiveSection("experience");
+    }
+  }, [isWorkPage, pathname]);
+
   /* ── Re-compute shadow when scrolled state or theme changes ── */
   useEffect(() => {
     setNavShadow(scrolled ? getThemeShadow() : "none");
@@ -70,46 +85,42 @@ export default function StickyChips() {
 
   useEffect(() => {
     const onScroll = () => {
-      // On desktop (no toolbar offset), show shadow after minimal scroll
-      // On mobile, show after scrolling past toolbar
       const threshold = toolbarHeight > 0 ? toolbarHeight : 10;
       const nowScrolled = window.scrollY >= threshold;
       setScrolled(nowScrolled);
 
-      // Auto-scroll desktop bar to the right to show nav chips
       const bar = desktopBarRef.current;
       if (bar) {
         if (nowScrolled && !hasAutoScrolledDesktop.current) {
           bar.scrollTo({ left: bar.scrollWidth, behavior: "smooth" });
           hasAutoScrolledDesktop.current = true;
         } else if (!nowScrolled) {
-          // Reset so it scrolls right again next time
           hasAutoScrolledDesktop.current = false;
           bar.scrollTo({ left: 0, behavior: "smooth" });
         }
       }
 
-      // Snap to "home" when near the top (observer can't reliably detect it)
-      if (!isClickScrolling.current && window.scrollY < 100) {
-        setActiveSection("home");
-      }
+      // Only update active section on home page
+      if (!isWorkPage) {
+        if (!isClickScrolling.current && window.scrollY < 100) {
+          setActiveSection("home");
+        }
 
-      // Detect bottom-of-page → activate "steal" chip
-      if (!isClickScrolling.current) {
-        const atBottom = window.innerHeight + window.scrollY >= document.body.scrollHeight - 100;
-        if (atBottom) {
-          setActiveSection("steal");
+        if (!isClickScrolling.current) {
+          const atBottom = window.innerHeight + window.scrollY >= document.body.scrollHeight - 100;
+          if (atBottom) {
+            setActiveSection("steal");
+          }
         }
       }
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, [toolbarHeight]);
+  }, [toolbarHeight, isWorkPage]);
 
   /* ── Measure & position the sliding indicator ──────────── */
   const updateIndicator = useCallback((sectionId: string) => {
-    // Mobile indicator
     const chip = chipRefs.current.get(sectionId);
     const nav = navRef.current;
     if (chip && nav) {
@@ -121,7 +132,6 @@ export default function StickyChips() {
       });
     }
 
-    // Desktop indicator
     const dChip = desktopChipRefs.current.get(sectionId);
     const dNav = desktopNavRef.current;
     if (dChip && dNav) {
@@ -143,23 +153,20 @@ export default function StickyChips() {
     const containerRect = container.getBoundingClientRect();
     const chipRect = chip.getBoundingClientRect();
 
-    // Calculate how far off-screen the chip is
     const overflowLeft = containerRect.left - chipRect.left;
     const overflowRight = chipRect.right - containerRect.right;
 
     if (overflowLeft > 0) {
-      // Chip is clipped on the left — scroll left to reveal it (with padding)
       container.scrollTo({ left: container.scrollLeft - overflowLeft - 16, behavior: "smooth" });
     } else if (overflowRight > 0) {
-      // Chip is clipped on the right — scroll right to reveal it (with padding)
       container.scrollTo({ left: container.scrollLeft + overflowRight + 16, behavior: "smooth" });
     }
   }, []);
 
-  /* ── Intersection Observer (tracks everything except "home") */
+  /* ── Intersection Observer (home page only) ── */
   useEffect(() => {
-    // Skip "home" — it wraps all content so it's always intersecting.
-    // "home" is detected by the scroll listener instead.
+    if (isWorkPage) return;
+
     const ids = navItems.map((i) => i.href.slice(1)).filter((id) => id !== "home");
     const sections = ids
       .map((id) => document.getElementById(id))
@@ -170,7 +177,7 @@ export default function StickyChips() {
     const observer = new IntersectionObserver(
       (entries) => {
         if (isClickScrolling.current) return;
-        if (window.scrollY < 100) return; // home zone — handled by scroll listener
+        if (window.scrollY < 100) return;
 
         const visible = entries
           .filter((e) => e.isIntersecting)
@@ -185,7 +192,7 @@ export default function StickyChips() {
 
     sections.forEach((s) => observer.observe(s));
     return () => observer.disconnect();
-  }, []);
+  }, [isWorkPage]);
 
   /* ── Move indicator & center chip when active section changes */
   useEffect(() => {
@@ -214,13 +221,24 @@ export default function StickyChips() {
     return () => clearTimeout(t);
   }, [activeSection, updateIndicator]);
 
-  /* ── Smooth scroll on click ────────────────────────────── */
+  /* ── Handle click: on work pages, navigate to home + section ── */
   const handleClick = (e: React.MouseEvent, href: string) => {
     e.preventDefault();
     const id = href.slice(1);
+
+    if (isWorkPage) {
+      // Navigate back to home page with hash so it scrolls to the right section
+      if (id === "home") {
+        router.push("/");
+      } else {
+        router.push(`/#${id}`);
+      }
+      return;
+    }
+
+    // Home page behaviour — smooth scroll
     const el = document.getElementById(id);
     if (el) {
-      // Lock the indicator immediately, ignore observer until scroll settles
       isClickScrolling.current = true;
       setActiveSection(id);
       centerActiveChip(id);
@@ -231,17 +249,14 @@ export default function StickyChips() {
         el.scrollIntoView({ behavior: "smooth" });
       }
 
-      // Clear any previous timer
       if (clickScrollTimer.current) clearTimeout(clickScrollTimer.current);
-
-      // Re-enable observer after scroll finishes (~800ms is generous for smooth scroll)
       clickScrollTimer.current = setTimeout(() => {
         isClickScrolling.current = false;
       }, 800);
     }
   };
 
-  /* ── Measure toolbar so we can use negative sticky offset ── */
+  /* ── Measure toolbar ── */
   useEffect(() => {
     const el = toolbarRef.current;
     if (!el) return;
@@ -252,7 +267,7 @@ export default function StickyChips() {
     return () => ro.disconnect();
   }, []);
 
-  /* ── Fade-in on mount ──────────────────────────────────── */
+  /* ── Fade-in on mount ── */
   const [headerVisible, setHeaderVisible] = useState(false);
   useEffect(() => {
     const t = setTimeout(() => setHeaderVisible(true), 300);
@@ -267,7 +282,7 @@ export default function StickyChips() {
   return (
     <>
       {/* ═══════════════════════════════════════════════════════
-          MOBILE layout — stacked: toolbar scrolls away, chips sticky
+          MOBILE layout
           ═══════════════════════════════════════════════════════ */}
       <div
         className="z-50 flex w-full flex-col tablet:hidden"
@@ -277,7 +292,6 @@ export default function StickyChips() {
           ...fadeStyle,
         }}
       >
-        {/* ── Theme toolbar row (scrolls away via negative top) ── */}
         <div
           ref={toolbarRef}
           className="flex w-full items-center justify-center"
@@ -289,7 +303,6 @@ export default function StickyChips() {
           <ThemeToolbar />
         </div>
 
-        {/* ── Nav chips row (remains visible after toolbar scrolls) */}
         <div
           className="flex w-full flex-col backdrop-blur-md"
           style={{
@@ -311,7 +324,6 @@ export default function StickyChips() {
               backgroundColor: "rgb(var(--text) / 0.08)",
             }}
           >
-            {/* ── Sliding indicator pill ─────────────────────── */}
             <span
               className="pointer-events-none absolute"
               style={{
@@ -345,7 +357,7 @@ export default function StickyChips() {
                     fontSize: 16,
                     lineHeight: 1,
                     fontFamily: "var(--font-body, 'Roboto', sans-serif)",
-color: isActive ? "rgb(var(--chip-active-text))" : "rgb(var(--text))",
+                    color: isActive ? "rgb(var(--chip-active-text))" : "rgb(var(--text))",
                   }}
                 >
                   {item.label}
@@ -353,38 +365,14 @@ color: isActive ? "rgb(var(--chip-active-text))" : "rgb(var(--text))",
               );
             })}
 
-            <a
-              ref={(el) => { if (el) chipRefs.current.set("steal", el); }}
-              href="#"
-              onClick={(e) => {
-                e.preventDefault();
-                isClickScrolling.current = true;
-                setActiveSection("steal");
-                centerActiveChip("steal");
-                window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
-                if (clickScrollTimer.current) clearTimeout(clickScrollTimer.current);
-                clickScrollTimer.current = setTimeout(() => { isClickScrolling.current = false; }, 800);
-              }}
-              className="relative z-10 flex shrink-0 items-center justify-center whitespace-nowrap transition-colors duration-300"
-              style={{
-                minWidth: 80,
-                padding: "12px 16px",
-                borderRadius: 9999,
-                fontSize: 16,
-                lineHeight: 1,
-                fontFamily: "var(--font-body, 'Roboto', sans-serif)",
-                color: activeSection === "steal" ? "rgb(var(--chip-active-text))" : "rgb(var(--text))",
-              }}
-            >
-              Steal this site
-            </a>
-          </nav>
+            
+        </nav>
           </div>
         </div>
       </div>
 
       {/* ═══════════════════════════════════════════════════════
-          DESKTOP layout — single sticky row: theme left, nav right
+          DESKTOP layout
           ═══════════════════════════════════════════════════════ */}
       <div
         ref={desktopBarRef}
@@ -398,12 +386,10 @@ color: isActive ? "rgb(var(--chip-active-text))" : "rgb(var(--text))",
           opacity: headerVisible ? 1 : 0,
         }}
       >
-        {/* Left side — theme controls + info */}
         <div className="flex items-center shrink-0" style={{ gap: 4 }}>
           <ThemeToolbar compact />
         </div>
 
-        {/* Right side — nav chips */}
         <nav
           ref={desktopNavRef}
           aria-label="Main navigation"
@@ -416,7 +402,6 @@ color: isActive ? "rgb(var(--chip-active-text))" : "rgb(var(--text))",
             backgroundColor: "rgb(var(--text) / 0.08)",
           }}
         >
-          {/* ── Sliding indicator pill ─────────────────────── */}
           <span
             className="pointer-events-none absolute"
             style={{
@@ -458,31 +443,7 @@ color: isActive ? "rgb(var(--chip-active-text))" : "rgb(var(--text))",
             );
           })}
 
-          <a
-            ref={(el) => { if (el) desktopChipRefs.current.set("steal", el); }}
-            href="#"
-            onClick={(e) => {
-              e.preventDefault();
-              isClickScrolling.current = true;
-              setActiveSection("steal");
-              centerActiveChip("steal");
-              window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
-              if (clickScrollTimer.current) clearTimeout(clickScrollTimer.current);
-              clickScrollTimer.current = setTimeout(() => { isClickScrolling.current = false; }, 800);
-            }}
-            className="relative z-10 flex shrink-0 items-center justify-center whitespace-nowrap transition-colors duration-300"
-            style={{
-              minWidth: 80,
-              padding: "12px 16px",
-              borderRadius: 9999,
-              fontSize: 16,
-              lineHeight: 1,
-              fontFamily: "var(--font-body, 'Roboto', sans-serif)",
-              color: activeSection === "steal" ? "rgb(var(--chip-active-text))" : "rgb(var(--text))",
-            }}
-          >
-            Steal this site
-          </a>
+          
         </nav>
       </div>
     </>

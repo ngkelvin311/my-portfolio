@@ -26,26 +26,26 @@ const robotoMono = Roboto_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://timdyson.com"),
-  title: "Tim Dyson — Designer & Design Engineer",
+  metadataBase: new URL("https://kelvinux.com"),
+  title: "UX Design | Kelvin Ng | Melbourne",
   description:
-    "Portfolio of Tim Dyson — 10+ years in product design, design systems, and design engineering. Available for consulting.",
+    "Portfolio of Kelvin Ng — From AutoCAD to Figma. Crafting great design from the foundations up. Come in and discover my story and what I do.",
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Tim Dyson — Designer & Design Engineer",
+    title: "Kelvin Ng — UX Designer",
     description:
-      "Portfolio of Tim Dyson — 10+ years in product design, design systems, and design engineering.",
+      "Portfolio of Kelvin Ng — 10+ years in product design, design systems, and design engineering.",
     url: "/",
-    siteName: "Tim Dyson",
+    siteName: "Kelvin Ng",
     images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Tim Dyson portfolio" }],
     locale: "en_AU",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Tim Dyson — Designer & Design Engineer",
+    title: "UX Design | Kelvin Ng | Melbourne",
     description:
-      "Portfolio of Tim Dyson — 10+ years in product design, design systems, and design engineering.",
+      "Portfolio of Kelvin Ng — From AutoCAD to Figma. Crafting great design from the foundations up. Come in and discover my story and what I do.",
     images: ["/og-image.png"],
   },
   icons: {
@@ -132,14 +132,14 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Person",
-              name: "Tim Dyson",
-              url: "https://timdyson.com",
+              name: "Kelvin Ng",
+              url: "https://kelvinux.com",
               jobTitle: "Designer & Design Engineer",
               description:
                 "10+ years in product design, design systems, and design engineering. Available for consulting.",
-              email: "mailto:hello@timdyson.com",
+              email: "mailto:ngkelvin311@gmail.com",
               sameAs: [
-                "https://www.linkedin.com/in/timdyson/",
+                "https://www.linkedin.com/in/kelvin-ng-melbourne/",
                 "https://github.com/grimdyson",
               ],
             }),
