@@ -5,7 +5,6 @@
   import Section from "@/components/Section";
   import Button from "@/components/Button";
   import Reveal from "@/components/Reveal";
-  import Image from "next/image";
   import ProtectedButton from "@/components/ProtectedButton";
   import AudienceSwitcher from "@/components/AudienceSwitcher";
   import Marquee from "@/components/Marquee";
@@ -45,9 +44,25 @@
           <Section id="about" label="About">
             <div className="flex flex-col tablet:flex-row tablet:items-stretch gap-12 tablet:gap-16">
               <div className="type-body flex flex-col gap-6 tablet:flex-1">
-                {profile.about.map((paragraph, i) => (
-                  <p key={i}>{paragraph}</p>
-                ))}
+               {profile.about.slice(0, -1).map((paragraph, i) => (
+  <p key={i}>{paragraph}</p>
+))}
+<p>
+  Outside of design you can find me snowboarding,{" "}
+  <a href="https://youtu.be/gJeRDCTk18M?si=FRk-CibqMHy16ecY&t=219"
+  target="_blank"
+  rel="noopener noreferrer"
+  style={{ textDecoration: "underline" }}
+>
+  lion dancing
+</a>
+  , taking photos or{" "}
+  <a href="https://www.instagram.com/legion.nine/" target="_blank" rel="noopener noreferrer" className="underline"
+  style={{ textDecoration: "underline" }}>
+    painting little toy soldiers
+  </a>
+  .
+</p>
               </div>
               <AboutImage />
             </div>

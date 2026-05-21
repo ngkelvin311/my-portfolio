@@ -2,6 +2,7 @@ import Reveal from "@/components/Reveal";
 import Button from "@/components/Button";
 import ProtectedButton from "@/components/ProtectedButton";
 
+
 export const metadata = {
   title: "Reece — Kelvin Ng",
   description: "UX design work at Reece and reecetech across the maX platform.",

@@ -32,6 +32,14 @@ const projects = [
   tags: ["Discovery", "Internal Tool", "Data Design", "Stakeholder Research"],
   href: "/work/fitness-passport/employer-reporting",
 },
+{
+  number: "04",
+  title: "Improving New Member Approvals",
+  description:
+    "The brief was to automate member approvals. The research said not yet. Workshops, data analysis, and facilitator interviews redirected the initiative from an expensive automation build to targeted improvements that shipped faster and benefited 100% of facilitators.",
+  tags: ["Research", "Workshop Facilitation", "Strategic Pivot"],
+  href: "/work/fitness-passport/Improved-approvals",
+},
 ];
 
 export default function FitnessPassportPage() {

@@ -328,8 +328,10 @@ export default function ThemeToolbar({ compact = false }: { compact?: boolean } 
   const resetToAuto = () => {
     setIsManual(false);
     window.localStorage.removeItem("portfolio-theme-manual");
+    window.localStorage.removeItem("portfolio-theme");
     const auto = getCurrentAutoTheme();
     setTheme(auto);
+    applyTheme(auto);
   };
 
   /* ── Shared: Slider pill ─────────────────────────────────── */

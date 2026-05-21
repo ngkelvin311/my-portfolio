@@ -70,7 +70,7 @@ export default function DesignSystemCaseStudy() {
           <p className="type-body" style={{ maxWidth: 720, color: "rgb(var(--muted))" }}>
             Fitness Passport had no shared design language. Designers worked in
             isolation, engineering rebuilt the same components repeatedly, and
-            every rebrand was a manual slog. I built the foundations, the
+            every change was a manual select and replace. I built the foundations, the
             contribution model, and the strategy to scale it across product,
             mobile, and engineering teams.
           </p>
@@ -161,8 +161,8 @@ export default function DesignSystemCaseStudy() {
         <p className="type-body" style={{ maxWidth: 720 }}>
           I owned the design system end to end. Strategy, execution, stakeholder
           alignment, contribution model, and the handoff process between design
-          and engineering. There was no dedicated team. I was building this
-          alongside product work.
+          and engineering. There was no resource for a dedicated team. I was building this
+          alongside product work while selling the value of the system and driving a design system champions group. This consisted of product managers, engineers and designers who all believed in the cause and helped push for adoption across their teams. I also partnered closely with the engineering manager and tech lead to ensure the system was built in a way that met the needs of engineers and was feasible within the constraints of the legacy codebase.
         </p>
       </section>
 
@@ -219,81 +219,94 @@ export default function DesignSystemCaseStudy() {
       </section>
 
       {/* ── Approach ──────────────────────────────────────── */}
-      <section
-        className="flex flex-col gap-8 pt-8"
-        style={{ borderTop: "1px solid rgb(var(--border))" }}
-      >
-        <p className="type-tagline">Approach</p>
-        <div className="flex flex-col gap-6" style={{ maxWidth: 720 }}>
-          <p className="type-body">
-            I started with a blank slate. Everything: every component, every
-            guideline, every token, was built from the ground up. My role was to
-            own this across design and engineering, set the direction, make the
-            calls, and keep both sides moving toward the same system.
-          </p>
-          <p className="type-body">
-            The sequencing mattered. The principle I worked from, drawn from the
-            Design Systems Handbook by Suarez et al, is what they call{" "}
-            <strong className="font-medium">tokens as contracts</strong>: you
-            define the named language first (colour, typography, spacing) so
-            that when you build components, they are already speaking the same
-            vocabulary as the codebase. Skip this step and you are building on
-            sand.
-          </p>
-          <p className="type-body">
-            I structured the work across three horizons, a sequencing model
-            adapted from strategic planning: near term foundations, mid-term
-            scale, long-term sync. Rather than trying to build everything at
-            once and delivering nothing, each horizon is completable on its own
-            while keeping the long-term architecture in view.
-          </p>
-        </div>
+      {/* ── Approach ──────────────────────────────────────── */}
+<section
+  className="flex flex-col gap-8 pt-8"
+  style={{ borderTop: "1px solid rgb(var(--border))" }}
+>
+  <p className="type-tagline">Approach</p>
+  <div className="flex flex-col gap-6" style={{ maxWidth: 720 }}>
+    <p className="type-body">
+      I started with a blank slate. Everything: every component, every
+      guideline, every token, was built from the ground up. My role was to
+      own this across design and engineering, set the direction, make the
+      calls, and keep both sides moving toward the same system.
+    </p>
+    <p className="type-body">
+      The sequencing mattered. The principle I worked from, drawn from the
+      Design Systems Handbook by Suarez et al, is what they call{" "}
+      <strong className="font-medium">tokens as contracts</strong>: you
+      define the named language first (colour, typography, spacing) so
+      that when you build components, they are already speaking the same
+      vocabulary as the codebase. Skip this step and you are building on
+      sand.
+    </p>
+    <p className="type-body">
+      I structured the work across three horizons, a sequencing model
+      adapted from strategic planning: near term foundations, mid-term
+      scale, long-term sync. Rather than trying to build everything at
+      once and delivering nothing, each horizon is completable on its own
+      while keeping the long-term architecture in view.
+    </p>
+  </div>
 
-        {/* Three horizons grid */}
-        <div className="grid grid-cols-1 tablet:grid-cols-3 gap-4">
-          {[
-            {
-              label: "H1 · Complete",
-              title: "Foundation",
-              body: "Semantic colour system, Onest typography, 8px spacing grid, Material icons, initial Figma tokens, contribution model v1.",
-              note: "0 to 6 months",
-            },
-            {
-              label: "H2 · In progress",
-              title: "Scale",
-              body: "Core components in Figma and code, contribution model live, mobile foundations, email templates, AI workflow in progress.",
-              note: "6 to 12 months",
-            },
-            {
-              label: "H3 · Roadmap",
-              title: "Sync",
-              body: "Figma tokens mapped to Tailwind config, AI-themed Shadcn library, self-hosted component docs, versioned changelog.",
-              note: "12 to 24 months",
-            },
-          ].map((h) => (
-            <div
-              key={h.label}
-              className="flex flex-col gap-3 rounded-lg p-6"
-              style={{
-                background: "rgb(var(--surface))",
-                border: "1px solid rgb(var(--border))",
-              }}
-            >
-              <p className="type-tagline">{h.label}</p>
-              <p className="type-body-emphasis">{h.title}</p>
-              <p className="type-body" style={{ color: "rgb(var(--muted))" }}>
-                {h.body}
-              </p>
-              <p
-                className="type-meta"
-                style={{ color: "rgb(var(--muted))", marginTop: "auto" }}
-              >
-                {h.note}
-              </p>
-            </div>
-          ))}
+  <div className="grid grid-cols-1 tablet:grid-cols-3 gap-4">
+    <div
+      className="flex flex-col gap-3 rounded-lg p-6"
+      style={{ background: "rgb(var(--surface))", border: "1px solid rgb(var(--border))" }}
+    >
+      <div className="flex items-center justify-between">
+        <p className="type-tagline">Horizon 01</p>
+        <div className="flex items-center gap-2">
+          <span className="inline-block w-2 h-2 rounded-full" style={{ background: "#22c55e" }} />
+          <span className="type-meta" style={{ color: "#22c55e" }}>Complete</span>
         </div>
-      </section>
+      </div>
+      <p className="type-body-emphasis">Foundation</p>
+      <p className="type-body" style={{ color: "rgb(var(--muted))" }}>
+        Semantic colour system, Oxygen typography, 8px spacing grid, Material icons, initial Figma tokens, contribution model v1.
+      </p>
+      <p className="type-meta" style={{ color: "rgb(var(--muted))", marginTop: "auto" }}>0 to 6 months</p>
+    </div>
+
+    <div
+      className="flex flex-col gap-3 rounded-lg p-6"
+      style={{ background: "rgb(var(--surface))", border: "1px solid rgb(var(--border))" }}
+    >
+      <div className="flex items-center justify-between">
+        <p className="type-tagline">Horizon 02</p>
+        <div className="flex items-center gap-2">
+          <span className="inline-block w-2 h-2 rounded-full" style={{ background: "#eab308" }} />
+          <span className="type-meta" style={{ color: "#eab308" }}>In progress</span>
+        </div>
+      </div>
+      <p className="type-body-emphasis">Scale</p>
+      <p className="type-body" style={{ color: "rgb(var(--muted))" }}>
+        Core components in Figma and code, contribution model live, mobile foundations, email templates, AI workflow in progress.
+      </p>
+      <p className="type-meta" style={{ color: "rgb(var(--muted))", marginTop: "auto" }}>6 to 12 months</p>
+    </div>
+
+    <div
+      className="flex flex-col gap-3 rounded-lg p-6"
+      style={{ background: "rgb(var(--surface))", border: "1px solid rgb(var(--border))" }}
+    >
+      <div className="flex items-center justify-between">
+        <p className="type-tagline">Horizon 03</p>
+        <div className="flex items-center gap-2">
+          <span className="inline-block w-2 h-2 rounded-full" style={{ background: "rgb(var(--muted))" }} />
+          <span className="type-meta" style={{ color: "rgb(var(--muted))" }}>Roadmap</span>
+        </div>
+      </div>
+      <p className="type-body-emphasis">Sync</p>
+      <p className="type-body" style={{ color: "rgb(var(--muted))" }}>
+        Figma tokens mapped to Tailwind config, AI-themed Shadcn library, self-hosted component docs, versioned changelog.
+      </p>
+      <p className="type-meta" style={{ color: "rgb(var(--muted))", marginTop: "auto" }}>12 to 24 months</p>
+    </div>
+  </div>
+</section>
+
 
       {/* ── The contribution model ────────────────────────── */}
       <section
@@ -309,16 +322,15 @@ export default function DesignSystemCaseStudy() {
           <p className="type-body">
             I established a contribution model that defined how any designer or
             engineer could add to the system without it becoming a bottleneck.
-            The principle behind it comes from Dan Mall's{" "}
-            <em>Design That Scales</em>: if the cost of contribution is low
-            enough, teams use the system instead of going around it.
+            <strong className="font-medium">If the cost of contribution is low
+            enough, teams use the system instead of going around it.</strong>
           </p>
           <p className="type-body">
             We built on an as-needs basis. When a team needed a component, they
             built it to the standard and it went into the library. Every team
             that came after consumed it for free. Build it once, when you need
             it. Every member of the design team has now successfully contributed
-            to at least one of the three library files.
+            to at least one of the three library files and every product squad has built and consumed multiple components. The system is no longer something only I own. It is something we own together as a team.
           </p>
         </div>
 

@@ -20,6 +20,8 @@ export default function ProtectedButton({
   const [error, setError] = useState(false);
   const [remember, setRemember] = useState(true);
   const [mounted, setMounted] = useState(false);
+  const [unlockHovered, setUnlockHovered] = useState(false);
+  const [closeHovered, setCloseHovered] = useState(false);
 
   useEffect(() => {
     setMounted(true);
@@ -109,12 +111,18 @@ export default function ProtectedButton({
             Enter your provided password
           </p>
           <button
-            onClick={handleClose}
-            className="type-meta"
-            style={{ color: "rgba(255,255,255,0.4)" }}
-          >
-            CLOSE
-          </button>
+  onClick={handleClose}
+  onMouseEnter={() => setCloseHovered(true)}
+  onMouseLeave={() => setCloseHovered(false)}
+  className="type-meta"
+  style={{
+    color: closeHovered ? "rgba(255,255,255,0.9)" : "rgba(255,255,255,0.4)",
+    transition: "color 200ms ease",
+    cursor: "pointer",
+  }}
+>
+  CLOSE
+</button>
         </div>
 
         <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
@@ -154,31 +162,30 @@ export default function ProtectedButton({
             </p>
           )}
 
-          <label
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "12px",
-              cursor: "pointer",
-              color: "rgba(255,255,255,0.7)",
-            }}
-            className="type-body"
-          >
-            <div
-              onClick={() => setRemember(!remember)}
-              style={{
-                width: "16px",
-                height: "16px",
-                borderRadius: "4px",
-                flexShrink: 0,
-                cursor: "pointer",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                border: "1.5px solid rgba(255,255,255,0.3)",
-                background: remember ? "rgba(255,255,255,0.9)" : "transparent",
-              }}
-            >
+       <label
+  onClick={() => setRemember(!remember)}
+  style={{
+    display: "flex",
+    alignItems: "center",
+    gap: "12px",
+    cursor: "pointer",
+    color: "rgba(255,255,255,0.7)",
+  }}
+  className="type-body"
+>
+  <div
+    style={{
+      width: "16px",
+      height: "16px",
+      borderRadius: "4px",
+      flexShrink: 0,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      border: "1.5px solid rgba(255,255,255,0.3)",
+      background: remember ? "rgba(255,255,255,0.9)" : "transparent",
+    }}
+  >
               {remember && (
                 <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
                   <path
@@ -196,22 +203,25 @@ export default function ProtectedButton({
         </div>
 
         <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-          <button
-            onClick={handleUnlock}
-            className="type-body"
-            style={{
-              width: "100%",
-              padding: "12px 24px",
-              borderRadius: "999px",
-              fontWeight: 500,
-              cursor: "pointer",
-              background: "rgba(255,255,255,0.9)",
-              color: "#111111",
-              border: "none",
-            }}
-          >
-            Unlock case studies
-          </button>
+         <button
+  onClick={handleUnlock}
+  onMouseEnter={() => setUnlockHovered(true)}
+  onMouseLeave={() => setUnlockHovered(false)}
+  className="type-body"
+  style={{
+    width: "100%",
+    padding: "12px 24px",
+    borderRadius: "999px",
+    fontWeight: 500,
+    cursor: "pointer",
+    background: unlockHovered ? "rgba(255,255,255,1)" : "rgba(255,255,255,0.85)",
+    color: "#111111",
+    border: "none",
+    transition: "background 200ms ease",
+  }}
+>
+  Unlock case studies
+</button>
           <a
             href="mailto:your@email.com"
             className="type-body"
