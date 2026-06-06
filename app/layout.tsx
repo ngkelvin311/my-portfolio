@@ -1,8 +1,11 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Manrope, Roboto, Roboto_Mono } from "next/font/google";
+import { Manrope, Roboto, Roboto_Mono, Geist } from "next/font/google";
 import StickyChips from "@/components/StickyChips";
 import { Analytics } from "@vercel/analytics/next";
+import { cn } from "@/lib/utils";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -121,7 +124,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${manrope.variable} ${roboto.variable} ${robotoMono.variable}`}
+      className={cn(manrope.variable, roboto.variable, robotoMono.variable, "font-sans", geist.variable)}
     >
       <head>
         <meta name="theme-color" content="#d4d4d8" />

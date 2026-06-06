@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 
 function GapCard({
   title,
@@ -88,7 +87,7 @@ export default function DesignSystemCaseStudy() {
           </div>
           <div className="flex flex-col gap-1">
             <p className="type-tagline">Timeline</p>
-            <p className="type-body">2023 to present</p>
+            <p className="type-body">2025 to present</p>
           </div>
           <div className="flex flex-col gap-1">
             <p className="type-tagline">Status</p>
@@ -106,22 +105,16 @@ export default function DesignSystemCaseStudy() {
           </div>
         </div>
 
-        {/* Hero image placeholder */}
-        <div
-          className="w-full rounded-lg overflow-hidden"
-          style={{
-            height: 480,
-            background: "rgb(var(--surface))",
-            border: "1.5px dashed rgb(var(--border))",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <p className="type-tagline" style={{ color: "rgb(var(--muted))" }}>
-            Hero image placeholder
-          </p>
+        {/* Hero Image */}
+        <div className="w-full rounded-lg overflow-hidden">
+          <img
+            src="/work/Design-system/design-system-v2.png"
+            alt="Design System"
+            className="w-full h-auto"
+          />
         </div>
+
+        
       </header>
 
       {/* ── Results ───────────────────────────────────────── */}
@@ -141,7 +134,7 @@ export default function DesignSystemCaseStudy() {
             label="Not days to complete a full brand theme change"
           />
           <StatCard
-            value="70%"
+            value="Over 70%"
             label="Of manual email templates using the new Mailchimp template"
           />
         </div>
@@ -201,25 +194,28 @@ export default function DesignSystemCaseStudy() {
         </div>
 
         {/* Problem image placeholder */}
-        <div
-          className="w-full rounded-lg overflow-hidden"
-          style={{
-            height: 360,
-            background: "rgb(var(--surface))",
-            border: "1.5px dashed rgb(var(--border))",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <p className="type-tagline" style={{ color: "rgb(var(--muted))" }}>
-            Before state: old portal or inconsistent screens
-          </p>
-        </div>
+       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="flex flex-col gap-2">
+              <div className="w-full rounded-lg overflow-hidden">
+                <img
+                  src="/work/design-system/sign-in-screen-old.jpg"
+                  alt="Old sign in screen"
+                  className="w-full h-auto"
+                />
+              </div>
+            </div>
+            <div className="flex flex-col gap-2">
+              <div className="w-full rounded-lg overflow-hidden">
+                <img
+                  src="/work/design-system/portal-UI-old.jpg"
+                  alt="Old portal UI"
+                  className="w-full h-auto"
+                />
+              </div>
+            </div>
+          </div>
       </section>
-
-      {/* ── Approach ──────────────────────────────────────── */}
-      {/* ── Approach ──────────────────────────────────────── */}
+{/* ── Approach ──────────────────────────────────────── */}
 <section
   className="flex flex-col gap-8 pt-8"
   style={{ borderTop: "1px solid rgb(var(--border))" }}
@@ -241,6 +237,18 @@ export default function DesignSystemCaseStudy() {
       vocabulary as the codebase. Skip this step and you are building on
       sand.
     </p>
+  </div>
+
+  {/* Token image — outside the 720 cap so it runs full width */}
+  <div className="w-full rounded-lg overflow-hidden">
+    <img
+      src="/work/Design-system/design-system-tokens.png"
+      alt="Design System Tokens"
+      className="w-full h-auto"
+    />
+  </div>
+
+    <div className="flex flex-col gap-6" style={{ maxWidth: 720 }}>
     <p className="type-body">
       I structured the work across three horizons, a sequencing model
       adapted from strategic planning: near term foundations, mid-term
@@ -334,10 +342,102 @@ export default function DesignSystemCaseStudy() {
           </p>
         </div>
 
-        <GapCard
-          title="Add a specific contribution example"
-          description="What was the first component that went through the full model? Walk through: who proposed it, how it was reviewed, and which teams consumed it after. One real example is worth more than describing the process in the abstract."
-        />
+        {/* Contribution model image */}
+        <div className="w-full rounded-lg overflow-hidden">
+          <img
+            src="/work/Design-system/design-system-contribution-model.png"
+            alt="Horizon design system contribution model"
+            className="w-full h-auto"
+          />
+        </div>
+
+{/* Button example */}
+        <details
+          className="rounded-lg overflow-hidden"
+          style={{ border: "1px solid rgb(var(--border))" }}
+        >
+          <summary
+            className="flex items-center justify-between gap-4 p-6 cursor-pointer list-none"
+            style={{ background: "rgb(var(--surface))" }}
+          >
+            <p className="type-body-emphasis">The button: a worked example</p>
+            <span className="type-meta" style={{ color: "rgb(var(--muted))", flexShrink: 0 }}>
+              View example
+            </span>
+          </summary>
+
+          <div
+            className="flex flex-col gap-6 p-6"
+            style={{ borderTop: "1px solid rgb(var(--border))" }}
+          >
+            <div className="flex flex-col gap-4" style={{ maxWidth: 720 }}>
+              <p className="type-body">
+                The product team needed a button component for a new signup
+                experience. They built three variants to standard: primary,
+                secondary, and destructive. Design and engineering both reviewed
+                and signed off. The component went into the code library and the
+                Figma file. That was the full contribution cycle, done once.
+              </p>
+              <p className="type-body">
+                Later, a different team picked up work that required a tertiary
+                button. They did not wait for someone else to build it. They
+                designed and developed the variant, ran it through the same
+                qualification process, and contributed it back into both
+                libraries. Nobody duplicated the work. Nobody built variants
+                speculatively upfront. The button family grew because the need
+                existed, not because someone planned a complete button system
+                in advance.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 tablet:grid-cols-4 gap-3">
+              {[
+                {
+                  step: "01",
+                  label: "Need identified",
+                  description:
+                    "Signup experience required buttons. Product team built primary, secondary, and destructive variants to standard.",
+                },
+                {
+                  step: "02",
+                  label: "Qualified",
+                  description:
+                    "Design and engineering reviewed and signed off. Both sides confirmed the component met the bar.",
+                },
+                {
+                  step: "03",
+                  label: "Added to system",
+                  description:
+                    "Component entered the code library and Figma. Every team that followed consumed it for free.",
+                },
+                {
+                  step: "04",
+                  label: "Extended",
+                  description:
+                    "A second team needed tertiary. Built it, contributed it back. The button family grew on demand, not speculation.",
+                },
+              ].map((item) => (
+                <div
+                  key={item.step}
+                  className="flex flex-col gap-2 rounded-lg p-5"
+                  style={{
+                    background: "rgb(var(--surface))",
+                    border: "1px solid rgb(var(--border))",
+                  }}
+                >
+                  <p className="type-tagline">{item.step}</p>
+                  <p className="type-body-emphasis">{item.label}</p>
+                  <p
+                    className="type-meta"
+                    style={{ color: "rgb(var(--muted))", marginTop: "auto" }}
+                  >
+                    {item.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </details>
       </section>
 
       {/* ── Handoff before and after ──────────────────────── */}
@@ -447,7 +547,185 @@ export default function DesignSystemCaseStudy() {
           ))}
         </div>
       </section>
+{/* ── Embracing AI ──────────────────────────────────── */}
+      <section
+        className="flex flex-col gap-8 pt-8"
+        style={{ borderTop: "1px solid rgb(var(--border))" }}
+      >
+        <p className="type-tagline">Embracing AI</p>
 
+        <div className="flex flex-col gap-6" style={{ maxWidth: 720 }}>
+          <p className="type-body">
+            Most design systems treat AI as a bolt-on. We built the foundation so
+            AI had something real to work with.
+          </p>
+          <p className="type-body">
+            The premise connects back to the tokens-as-contracts principle from
+            the Design Systems Handbook by Suarez et al: define the named
+            language first so everything built on top of it speaks the same
+            vocabulary. That structure is what gives an AI model a lever to pull.
+            If your tokens are semantically named and connected across the stack,
+            you do not update a visual language file by file. You change one
+            layer and the whole system follows.
+          </p>
+        </div>
+
+        {/* Stress test */}
+        <div
+          className="flex flex-col gap-4 rounded-lg p-6"
+          style={{ border: "1px solid rgb(var(--border))" }}
+        >
+          <p className="type-tagline">The stress test</p>
+          <p className="type-body" style={{ maxWidth: 720 }}>
+            An interim brand kit landed while a larger SLT-sponsored brand update
+            was still in motion. We could have waited. Instead we used it as a
+            live stress test for the AI workflow and the token architecture. The
+            AI updated variables and tokens across the entire Figma system in
+            hours. The same task in a previous workflow, without the structure,
+            would have required days of manual file-by-file searching, missed
+            instances, and a second pass to catch the gaps. One unplanned
+            exercise proved the architecture worked before the real brand update
+            arrived.
+          </p>
+        </div>
+
+        {/* Decoupling */}
+        <div className="flex flex-col gap-6" style={{ maxWidth: 720 }}>
+          <p className="type-body-emphasis">Decoupling from Storybook</p>
+          <p className="type-body">
+            Component documentation lived in Storybook. Engineers used it.
+            Designers rarely opened it. It moved in one direction and served one
+            audience.
+          </p>
+          <p className="type-body">
+            We started building our own repo, drawing from Shadcn as the base.
+            Shadcn is a headless component library built on Radix UI and Tailwind.
+            Headless is a pattern where the component ships with accessible,
+            composable logic but no visual opinions, so you theme it to your
+            specifications rather than inheriting someone else's. We theme it to
+            ours. The goal is a cross-connected workflow: Figma, our component
+            repo, GitHub, and Claude, all wired within the rhythms of how the
+            team already works.
+          </p>
+          <p className="type-body">
+            The repo puts code snippets and component guidelines in the same
+            place. Not a separate docs site that drifts out of sync. Not a Notion
+            page nobody updates. The spec and the code, side by side, at the same
+            time.
+          </p>
+        </div>
+
+        {/* Pipeline */}
+        <div className="grid grid-cols-2 tablet:grid-cols-4 gap-3">
+          {[
+            {
+              index: "01",
+              label: "Figma",
+              description: "Design source, variables, component library",
+              status: null,
+            },
+            {
+              index: "02",
+              label: "Component repo",
+              description: "Shadcn base, themed to spec, guidelines inline",
+              status: null,
+            },
+            {
+              index: "03",
+              label: "GitHub",
+              description: "Version control, review, deployment",
+              status: null,
+            },
+            {
+              index: "04",
+              label: "Claude",
+              description: "AI workflow, Claude design integration",
+              status: "In progress",
+            },
+          ].map((node) => (
+            <div
+              key={node.label}
+              className="flex flex-col gap-2 rounded-lg p-5"
+              style={{
+                background: "rgb(var(--surface))",
+                border: "1px solid rgb(var(--border))",
+              }}
+            >
+              <div className="flex items-center justify-between">
+                <p className="type-tagline">{node.index}</p>
+                {node.status && (
+                  <div className="flex items-center gap-1.5">
+                    <span
+                      className="inline-block w-1.5 h-1.5 rounded-full"
+                      style={{ background: "#eab308" }}
+                    />
+                    <span className="type-meta" style={{ color: "#eab308" }}>
+                      {node.status}
+                    </span>
+                  </div>
+                )}
+              </div>
+              <p className="type-body-emphasis">{node.label}</p>
+              <p
+                className="type-meta"
+                style={{ color: "rgb(var(--muted))", marginTop: "auto" }}
+              >
+                {node.description}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        {/* Bidirectional sync */}
+        <div className="flex flex-col gap-6" style={{ maxWidth: 720 }}>
+          <p className="type-body-emphasis">The bridge, in both directions</p>
+          <p className="type-body">
+            The longer-term direction is bidirectional sync. Tools like Tokens
+            Studio and the Figma Variables API have been building toward this for
+            a few years: update a token in Figma and the codebase reflects it.
+            Ship a component to the repo and the Figma library gains it. Both
+            directions, without a person manually carrying the change across.
+          </p>
+          <p className="type-body">
+            This matters because of the underlying philosophy the system was
+            built on: design and build on an as-needs basis. A bidirectional
+            bridge means neither side waits for the other to catch up. A designer
+            adds to Figma. An engineer ships to the repo. Both become part of the
+            system, in the same place, at the point it is needed.
+          </p>
+        </div>
+
+        {/* Prototyping */}
+        <div
+          className="flex flex-col gap-4 rounded-lg p-6"
+          style={{ border: "1px solid rgb(var(--border))" }}
+        >
+          <p className="type-tagline">What this unlocks for prototyping</p>
+          <p className="type-body" style={{ maxWidth: 720 }}>
+            Connecting this workflow to Claude changes what prototyping means in
+            practice. Complex logic that currently takes days to simulate in Figma
+            becomes testable in near-production conditions. The principle here is
+            prototype fidelity: Nielsen Norman Group has written at length about
+            matching fidelity to the type of feedback you need. Higher fidelity
+            surfaces more realistic reactions because participants are responding
+            to something that behaves like the real thing. This workflow brings
+            that fidelity forward, earlier in the process, without the manual
+            overhead it previously required.
+          </p>
+          <p className="type-body" style={{ maxWidth: 720, marginTop: 4 }}>
+            For teams without a design resource, this changes self-service.
+            They work against real components while the system keeps them
+            consistent. Handoff documentation shrinks because the prototype
+            already demonstrates the behaviour. Designers can explore more
+            interaction states, not just the ones that fit across a finite set of
+            static screens.
+          </p>
+          <p className="type-body" style={{ maxWidth: 720, marginTop: 4 }}>
+            None of this replaces design thinking. It removes the overhead that
+            gets in the way of it.
+          </p>
+        </div>
+      </section>
       {/* ── Reflection ────────────────────────────────────── */}
       <section
         className="flex flex-col gap-6 pt-8"

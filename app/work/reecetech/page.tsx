@@ -1,7 +1,5 @@
 import Reveal from "@/components/Reveal";
-import Button from "@/components/Button";
 import ProtectedButton from "@/components/ProtectedButton";
-
 
 export const metadata = {
   title: "Reece — Kelvin Ng",
@@ -13,16 +11,25 @@ const projects = [
     number: "01",
     title: "maX Stock Availability",
     description:
-      "Stock availability was invisible to customers placing orders. We surfaced live stock levels across the maX platform across web, iOS, and Android. Fully in-stock orders increased by 280% from launch.",
+      "Customers were placing orders their branch couldn't fulfil. We surfaced live stock levels across every touchpoint in the maX shopping flow and built a smart sourcing engine to resolve the gap in one tap. Fully in-stock orders increased 280% from launch.",
     tags: ["UX Design", "Research", "iOS", "Android", "Web"],
-    href: "/work/reece/max-stock-availability",
+    href: "/work/reecetech/stock-availability",
   },
   {
     number: "02",
-    title: "Add your next case study",
-    description: "Substitutions engine, design system work, or another project from your time at Reece.",
-    tags: [],
-    href: "#",
+    title: "maX Product Lists",
+    description:
+      "Trade customers were searching for the same products on every single order. We designed a saved lists feature backed by a predictive model that built template orders from real purchase behaviour and surfaced them before customers went looking. Zero searches required to place a repeat order.",
+    tags: ["UX Design", "Research", "iOS", "Android", "Web"],
+    href: "/work/reecetech/product-lists",
+  },
+  {
+    number: "03",
+    title: "maX Smart Recommendations",
+    description:
+      "Tradespeople use slang. Reece catalogues use technical names. That gap was causing search failures for products that existed and were in stock. We designed a proactive recommendation engine that surfaced complementary products while customers shopped, without requiring them to find the right words. The model predicts customer choices at 80% accuracy.",
+    tags: ["UX Design", "Research", "iOS", "Android"],
+    href: "/work/reecetech/smart-recommendations",
   },
 ];
 
@@ -90,7 +97,10 @@ export default function ReecePage() {
               )}
               {project.href !== "#" && (
                 <div>
-                <ProtectedButton href={project.href}>View case study</ProtectedButton>                </div>
+                  <ProtectedButton href={project.href}>
+                    View case study
+                  </ProtectedButton>
+                </div>
               )}
             </div>
           </Reveal>

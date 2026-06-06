@@ -1,4 +1,5 @@
 import Reveal from "@/components/Reveal";
+import { EmployerReportingUsageCharts } from "@/components/EmployerReportingUsageCharts"
 
 export const metadata = {
   title: "Employer Reporting Dashboard — Kelvin Ng",
@@ -36,10 +37,9 @@ export default function EmployerReportingPage() {
           </div>
           <p className="type-body max-w-[600px]">
             The roadmap said build a customer-facing dashboard. Discovery said
-            otherwise. We pivoted to an internal tool that is now used by the
-            entire team almost every day, saving over $20k a year in manual
-            reporting and giving the business control over how data is
-            presented to employers.
+            otherwise. We pivoted to an internal tool used by the entire team
+            daily, saving over $20k a year in manual reporting and giving the
+            business control over how data is presented to employers.
           </p>
 
           {/* Meta grid */}
@@ -66,13 +66,13 @@ export default function EmployerReportingPage() {
                   className="w-2 h-2 rounded-full flex-shrink-0"
                   style={{ background: "#22c55e" }}
                 />
-                Live
+                Saving over $20k/year
               </div>
             </div>
           </div>
-             <div className="w-full rounded-lg overflow-hidden">
+          <div className="w-full rounded-lg overflow-hidden">
             <img
-              src="/work/Improved-approvals/employer-report.jpg"
+              src="/work/Employer-reporting/employer-report.jpg"
               alt="The existing manual employer report used as the design anchor for the first version of the dashboard"
               className="w-full h-auto"
             />
@@ -156,16 +156,17 @@ export default function EmployerReportingPage() {
           <p className="type-tagline">My role</p>
           <h2 className="type-body font-medium text-xl">What I owned</h2>
           <p className="type-body max-w-[640px]">
-            I led discovery alongside product, running 11 interviews with internal
-            partnership managers and employers across B to A+ grade organisations
-            over three weeks. I was responsible for synthesising the findings,
-            making the recommendation to pivot the initiative, and then leading
-            design of the dashboard from that foundation.
+            I led discovery alongside product: 11 interviews across B to A+
+            employers over three weeks. I synthesised the findings, made the
+            case to pivot, and led design of the dashboard from that foundation.
           </p>
-          <GapCard
-            title="Team structure"
-            description="Who else was involved beyond Joe? Product manager, engineers, data team? What did you own vs what was a shared decision, especially the pivot call."
-          />
+          <div className="w-full rounded-lg overflow-hidden">
+    <img
+      src="/work/Employer-Reporting/team-structure.png"
+      alt="Team structure and my role in it"
+      className="w-full h-auto"
+    />
+  </div>
         </section>
       </Reveal>
 
@@ -180,17 +181,14 @@ export default function EmployerReportingPage() {
             40 hours a month. No standard format. No consistency.
           </h2>
           <p className="type-body max-w-[640px]">
-            Before this project, every employer report was built from scratch.
-            Each partnership manager had their own way of pulling data together,
-            their own presentation style, and their own level of spreadsheet
-            literacy. Reports went to A and A+ employers on a regular cadence.
+            Every report was built from scratch. Each partnership manager had
+            their own format, their own style, their own level of spreadsheet
+            literacy. A and A+ employers got reports on a regular cadence.
             Everyone else got one on request, if they asked at all.
           </p>
           <p className="type-body max-w-[640px]">
-            Across the team, this added up to around 40 hours per month in
-            manual reporting. At team rates, that translated to over $20,160 in
-            operational cost every year, just to maintain a process that was
-            already delivering inconsistent output.
+            Across the team: 40 hours a month, $20,160 a year. To maintain a
+            process that was already delivering inconsistent output.
           </p>
           <ul className="flex flex-col gap-2 type-body opacity-70 max-w-[560px]">
             {[
@@ -232,18 +230,17 @@ export default function EmployerReportingPage() {
           </h2>
           <p className="type-body max-w-[640px]">
             Before designing anything, I led 45 to 60 minute discovery
-            interviews over three weeks, ensuring product and engineering was brought along for the journey. We talked to both internal partnership
-            managers and employers across B to A+ categories. Three questions
-            anchored the research: what data employers actually use, what the
-            current partnership process looks like, and where there was room to
-            help both sides do their jobs better.
+            interviews over three weeks with product and engineering alongside.
+            Three questions anchored the research: what data employers actually
+            use, what the partnership process looks like, and where there was
+            room to help both sides do their jobs better.
           </p>
 
           {/* Methodology stats */}
           <div className="grid grid-cols-3 gap-4">
             {[
               { stat: "11", label: "participants" },
-              { stat: "3 wks", label: "interview period" },
+              { stat: "3 weeks", label: "interview period" },
               { stat: "B to A+", label: "employer range" },
             ].map((item) => (
               <div
@@ -264,19 +261,19 @@ export default function EmployerReportingPage() {
                 number: "01",
                 finding: "40 hours a month, no standard format",
                 detail:
-                  "Self-reported time across the team confirmed the scale of the problem. But the variance between individuals was the more important signal. The issue was not just time spent. It was inconsistency created by different tech literacy levels and different processes running in parallel.",
+                  "Self-reported time confirmed the scale. But the variance between individuals mattered more. Different tech literacy levels, different processes, one fragmented output.",
               },
               {
                 number: "02",
                 finding: "Employers do not pay, so the data is not a priority",
                 detail:
-                  "FP is widely valued as a workplace benefit. But because employers are not funding the program directly, there is minimal executive scrutiny on the numbers. Reporting on FP was often a small section in a broader HR update, lumped in alongside EAP and health insurance. A self-serve dashboard would be solving a problem they did not have.",
+                  "Employers value FP, but they do not fund it. Reporting was a small section in a broader HR update, lumped in with EAP and health insurance. A self-serve dashboard would be solving a problem they did not have.",
               },
               {
                 number: "03",
                 finding: "Quarterly meetings are about relationships, not reports",
                 detail:
-                  "Both partnership managers and employers described regular contact as a chance to plan engagement activities and membership growth strategies. Data supported those conversations but did not drive them. The team needed better tools to walk into meetings prepared, not more data to hand over.",
+                  "Regular contact was about planning and relationship building. Data supported those conversations but did not drive them. The team needed better tools to walk in prepared, not more data to hand over.",
               },
             ].map((item) => (
               <div key={item.number} className="flex gap-6 max-w-[640px]">
@@ -306,20 +303,14 @@ export default function EmployerReportingPage() {
             Three weeks of research made it hard to justify.
           </p>
           <p className="type-body max-w-[640px]">
-            Employers were clear: FP does not cost them anything, so there is no
-            pressure to measure it. Executive reporting on the program was
-            minimal, often just a paragraph. One described it as "one of our
-            main leading benefits that people love," but "not in terms of
-            obtaining data or metrics from." Another was more direct: "If there
-            was cost to us then you have to justify it."
+            Employers were clear: FP costs them nothing, so there is no
+            pressure to measure it. Reporting was minimal, often just a
+            paragraph. The quotes below say the rest.
           </p>
           <p className="type-body max-w-[640px]">
             A self-serve dashboard would be shipping a feature for a job
-            employers were not trying to do. The real job was on the inside.
-            Partnership managers needed to walk into quarterly meetings with
-            consistent, ready-to-go data and a clear story to tell. The value
-            was not in handing data to employers. It was in giving the team the
-            tools to use data better themselves.
+            employers were not trying to do. The real job was inside. Give the
+            team the tools to use data better themselves.
           </p>
 
           <div className="flex flex-col gap-4 mt-2">
@@ -368,66 +359,72 @@ export default function EmployerReportingPage() {
           <p className="type-tagline">Design</p>
           <h2 className="type-body font-medium text-xl">Built around real workflows</h2>
           <p className="type-body max-w-[640px]">
-            I used an existing large HR-led organisation report as the base for
-            prioritising metrics and workflows. This gave us a real anchor
-            rather than designing in the abstract, and meant the first version
-            could be validated against a known use case immediately.
+            I anchored the design to an existing HR-focused organisation report.
+            Real data, known use case, no designing in the abstract.
           </p>
 
-          {/* Previous report image */}
-
-          <ImagePlaceholder label="Dashboard structure and data hierarchy" height={280} />
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="w-full rounded-lg overflow-hidden">
+          <div className="w-full rounded-lg overflow-hidden">
             <img
-              src="/work/Improved-approvals/previous-report.jpg"
-              alt="The existing manual employer report used as the design anchor for the first version of the dashboard"
+              src="/work/Employer-reporting/report-structure.png"
+              alt="Dashboard structure and data hierarchy"
               className="w-full h-auto"
             />
           </div>
-            <ImagePlaceholder label="Employer report output" height={200} />
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="flex flex-col gap-2">
+              <p className="type-meta opacity-40">Before — information redacted for privacy</p>
+              <div className="w-full rounded-lg overflow-hidden">
+                <img
+                  src="/work/Employer-reporting/previous-report.jpg"
+                  alt="The existing manual reporting process before the dashboard was built"
+                  className="w-full h-auto"
+                />
+              </div>
+            </div>
+            <div className="flex flex-col gap-2">
+              <p className="type-meta opacity-40">After</p>
+              <div className="w-full rounded-lg overflow-hidden">
+                <img
+                  src="/work/Employer-reporting/employer-report.jpg"
+                  alt="The new employer reporting dashboard"
+                  className="w-full h-auto"
+                />
+              </div>
+            </div>
           </div>
 
-          {/* Data hierarchy — replaces GapCard */}
+          {/* Data hierarchy */}
           <div className="flex flex-col gap-4 mt-4">
             <h3 className="type-body font-medium text-lg">
               A hierarchy built around how people read
             </h3>
             <p className="type-body max-w-[640px]">
-              The structure followed one rule: important to interesting, left to
-              right, top to bottom. This applies whether it is a partnership
-              manager scanning before a meeting or an employer looking at a PDF
-              they were sent.
+              One rule: important to interesting, left to right, top to bottom.
             </p>
             <p className="type-body max-w-[640px]">
               KPIs anchor the top row. Memberships, penetration rate, member
-              count, candidates, suspensions and cancellations. The headline
-              numbers. One glance, everything that matters before walking into
-              a room.
+              count, candidates, suspensions and cancellations. One glance,
+              everything that matters before walking into a room.
             </p>
             <p className="type-body max-w-[640px]">
-              A large membership over time chart follows. It gives context that
-              a stat cannot. Growth, seasonality, the before and after of a
-              launch push. It answers how the program is tracking without
-              needing a follow-up question.
+              A large membership over time chart follows. Context a stat cannot
+              give. Growth, seasonality, launch impact.
             </p>
             <p className="type-body max-w-[640px]">
-              The breakdowns come last, ordered by how often they come up in
-              real conversations between account managers and employers. Family
-              type, program split, member demographics, package mix, top
-              facilities. Each chart in that tier corresponds to a question that
-              used to require a spreadsheet and half an hour to answer.
+              Breakdowns come last, ordered by how often they come up in real
+              conversations. Family type, program split, demographics, package
+              mix, top facilities. Each one a question that used to require a
+              spreadsheet.
             </p>
           </div>
 
-          {/* Workflow — replaces GapCard */}
+          {/* Workflow */}
           <div className="flex flex-col gap-4 mt-4">
             <h3 className="type-body font-medium text-lg">
               From dashboard to shareable report
             </h3>
             <p className="type-body max-w-[640px]">
-              The whole workflow is five steps, replacing what used to take six
-              hours of manual work.
+              Five steps. Replacing what used to take six hours.
             </p>
             <ol className="flex flex-col gap-3 max-w-[560px]">
               {[
@@ -448,7 +445,7 @@ export default function EmployerReportingPage() {
                   note: "One click generates a formatted, ready-to-share report",
                 },
                 {
-                  step: "Share",
+                  step: "Share to drive meaningful conversations",
                   note: "In the meeting, over email, or on a Teams call",
                 },
               ].map((item, i) => (
@@ -479,18 +476,10 @@ export default function EmployerReportingPage() {
           <p className="type-tagline">Validation</p>
           <h2 className="type-body font-medium text-xl">Tested with the people who use it</h2>
           <p className="type-body max-w-[640px]">
-            Designs were validated with internal teams before shipping.
-            Post-launch, usage data confirmed the tool had become part of the
-            daily workflow across the entire account management team.
+            Validated with internal teams before shipping. Post-launch, usage
+            confirmed it had become part of the daily workflow.
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <ImagePlaceholder label="Usage data Oct-Dec 2025" height={180} />
-            <ImagePlaceholder label="Usage data Mar-May 2026" height={180} />
-          </div>
-          <GapCard
-            title="Usage numbers for both periods"
-            description="Add the actual usage figures for Oct-Dec 2025 and Mar-May 2026. Even session counts or active user numbers tell the adoption story clearly."
-          />
+         <EmployerReportingUsageCharts />
         </section>
       </Reveal>
 
@@ -499,11 +488,33 @@ export default function EmployerReportingPage() {
         <section className="flex flex-col gap-6 py-16">
           <p className="type-tagline">Reflection</p>
           <h2 className="type-body font-medium text-xl">What I'd do differently</h2>
-          <GapCard
-            title="Add your reflection here"
-            description="The pivot is a strong story but it raises a question: how did you get stakeholder buy-in to change direction from the original roadmap? That negotiation and how you'd approach it earlier next time is worth a paragraph."
-            emphasis
-          />
+          <p className="type-body max-w-[640px]">
+            The discovery interviews did most of the heavy lifting. Employer
+            quotes cut through internal assumptions faster than any slide deck.
+            The insight was simple: employers were not going to log in and
+            generate their own reports. FP was free. Nobody scrutinises what
+            they do not pay for.
+          </p>
+          <p className="type-body max-w-[640px]">
+            The case for pivoting had two sides. Customer evidence that the tool
+            would go unused. And the cost of the status quo: hourly rates,
+            engineering overhead, inconsistent branded reports going out the
+            door. The brand fragmentation argument landed just as hard as the
+            saving.
+          </p>
+          <p className="type-body max-w-[640px]">
+            The third piece was data control. An internal tool meant the
+            business could shape which metrics were surfaced and how the story
+            was told. That reframe shifted it from an efficiency play to a
+            business asset.
+          </p>
+          <p className="type-body max-w-[640px]">
+            Everything was presented through workshops, not a single
+            recommendation meeting. Letting stakeholders surface concerns before
+            a decision meant they felt part of the direction. The pivot landed
+            because by the time a decision was needed, the room had already
+            arrived there themselves.
+          </p>
         </section>
       </Reveal>
     </main>

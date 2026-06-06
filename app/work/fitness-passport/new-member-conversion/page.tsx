@@ -1,4 +1,6 @@
 import Reveal from "@/components/Reveal";
+import { NMCConversionChart } from "@/components/NMCConversionChart"
+import { NMCConversionLineChart } from "@/components/NMCConversionLineChart"
 
 export const metadata = {
   title: "New Member Conversion — Kelvin Ng",
@@ -85,10 +87,10 @@ export default function NewMemberConversionPage() {
           <p className="type-tagline">Results</p>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             {[
-              { stat: "65%", desc: "conversion rate, up from 57% target at launch" },
-              { stat: "93%", desc: "same-day conversion, up from 50% (Jan 2024 to Feb 2025)" },
-              { stat: "94.5%", desc: "of members completing medical declaration at first gate" },
-              { stat: "6.5", desc: "average SEQ score during usability testing" },
+              { stat: "65%", desc: "Conversion rate, up from 57% target at launch" },
+              { stat: "93%", desc: "Same-day conversion, up from 50% (Jan 2024 to Feb 2025)" },
+              { stat: "94.5%", desc: "Members completing medical declaration at first gate" },
+              { stat: "6.5", desc: "Average SEQ score during usability testing" },
             ].map((item) => (
               <div
                 key={item.stat}
@@ -104,26 +106,27 @@ export default function NewMemberConversionPage() {
       </Reveal>
 
       {/* My Role */}
-      <Reveal delay={100}>
-        <section
-          className="flex flex-col gap-6 py-16 border-b border-dashed"
-          style={{ borderColor: "rgb(var(--border))" }}
-        >
-          <p className="type-tagline">My role</p>
-          <h2 className="type-body font-medium text-xl">What I owned</h2>
-          <p className="type-body max-w-[640px]">
-            I led design end to end: journey mapping, research, co-design
-            sessions with product and engineering, prototype testing, and
-            final UI delivery. I was also responsible for identifying success
-            metrics and building the analytics framework to measure and
-            improve the feature post-launch.
-          </p>
-          <GapCard
-            title="Specific team structure"
-            description="Name the product manager, engineers, and any other stakeholders involved. What did you own vs what was collaborative?"
-          />
-        </section>
-      </Reveal>
+<Reveal delay={100}>
+  <section
+    className="flex flex-col gap-6 py-16 border-b border-dashed"
+    style={{ borderColor: "rgb(var(--border))" }}
+  >
+    <p className="type-tagline">My role</p>
+    <h2 className="type-body font-medium text-xl">What I owned</h2>
+    <p className="type-body max-w-[640px]">
+      I led design end to end: journey mapping, research, co-design
+      sessions with product and engineering, prototype testing, and
+      final UI delivery. I was also responsible for identifying success
+      metrics and building the analytics framework to measure and
+      improve the feature post-launch.
+    </p>
+    <img
+      src="/work/New-member-conversion/nmc-team-structure.png"
+      alt="Team structure"
+      className="w-full h-auto rounded-lg"
+    />
+  </section>
+</Reveal>
 
       {/* The Problem */}
       <Reveal delay={100}>
@@ -175,10 +178,68 @@ export default function NewMemberConversionPage() {
             explore how to separate signup from onboarding and rebuild each
             as a focused, single-purpose flow.
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
-            <ImagePlaceholder label="Journey map — existing flow" height={200} />
-            <ImagePlaceholder label="Friction point analysis" height={200} />
-          </div>
+          {/* Journey map */}
+<svg
+  width="100%"
+  viewBox="0 0 680 244"
+  aria-label="Existing sign-up journey — 7 steps"
+>
+  <defs>
+    <marker id="jm-arrow" viewBox="0 0 10 10" refX={8} refY={5} markerWidth={6} markerHeight={6} orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round"/>
+    </marker>
+  </defs>
+
+  {[
+    { x: 22, w: 155, cx: 99, label: "Select employer" },
+    { x: 197, w: 155, cx: 274, label: "Personal details" },
+    { x: 372, w: 130, cx: 437, label: "Choose plan" },
+    { x: 522, w: 135, cx: 589, label: "Bank details" },
+  ].map(({ x, w, cx, label }) => (
+    <g key={label}>
+      <rect x={x} y={40} width={w} height={44} rx={8} fill="none" stroke="currentColor" strokeWidth={0.5} strokeOpacity={0.3}/>
+      <text x={cx} y={62} textAnchor="middle" dominantBaseline="central" fontSize={13} fontWeight={500} fill="currentColor">{label}</text>
+    </g>
+  ))}
+
+  {[[177, 197], [352, 372], [502, 522]].map(([x1, x2]) => (
+    <line key={x1} x1={x1} y1={62} x2={x2} y2={62} stroke="currentColor" strokeWidth={1.5} strokeOpacity={0.35} markerEnd="url(#jm-arrow)"/>
+  ))}
+
+  <path d="M 589 84 L 589 130 L 472 130 L 472 170" fill="none" stroke="currentColor" strokeWidth={1.5} strokeOpacity={0.35} markerEnd="url(#jm-arrow)"/>
+
+  {[
+    { x: 392, w: 160, cx: 472, label: "T&Cs (2 pages)" },
+    { x: 217, w: 155, cx: 294, label: "Approval queue" },
+    { x: 22, w: 175, cx: 109, label: "Facilitator review" },
+  ].map(({ x, w, cx, label }) => (
+    <g key={label}>
+      <rect x={x} y={170} width={w} height={44} rx={8} fill="none" stroke="currentColor" strokeWidth={0.5} strokeOpacity={0.3}/>
+      <text x={cx} y={192} textAnchor="middle" dominantBaseline="central" fontSize={13} fontWeight={500} fill="currentColor">{label}</text>
+    </g>
+  ))}
+
+  {[[392, 372], [217, 197]].map(([x1, x2]) => (
+    <line key={x1} x1={x1} y1={192} x2={x2} y2={192} stroke="currentColor" strokeWidth={1.5} strokeOpacity={0.35} markerEnd="url(#jm-arrow)"/>
+  ))}
+</svg>
+
+{/* Friction points */}
+<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+  {[
+    { n: "01", title: "Upfront overload", body: "Personal details, medical declaration, and photo for all members, all before seeing the price" },
+    { n: "02", title: "Irrelevant questions", body: "Favourite facility asked before the member was approved, let alone had visited a gym" },
+    { n: "03", title: "Price confusion", body: "Single, family, and child pricing shown in three different units on the same screen" },
+    { n: "04", title: "Checkout anxiety", body: "Users navigated back from payment to personal details or plan selection to recheck price" },
+    { n: "05", title: "No post-submit signal", body: "Nothing told applicants their submission would enter a facilitator approval queue" },
+    { n: "06", title: "Legal exposure", body: "Primary members completed medical declarations for adults over 18, which has no legal standing" },
+  ].map(({ n, title, body }) => (
+<div key={n} className="flex flex-col gap-1 p-4 rounded-xl" style={{ background: "rgb(var(--surface))" }}>      <span className="text-xs opacity-30 font-mono">{n}</span>
+      <p className="type-body font-medium text-sm leading-snug">{title}</p>
+      <p className="type-body text-xs opacity-60 leading-relaxed">{body}</p>
+    </div>
+  ))}
+</div>
           <p className="type-body max-w-[640px]">
             The medical declaration discovery came during this mapping phase.
             The existing flow had legal exposure that had not been flagged
@@ -252,7 +313,7 @@ export default function NewMemberConversionPage() {
             Each became a focused flow with a single job. Signup: commit and
             pay. Onboarding: set up your account and complete your profile.
           </p>
-          <ImagePlaceholder label="Signup flow — key screens" height={280} />
+        <ImagePlaceholder label="Signup flow — key screens" height={280} />
           <p className="type-body max-w-[640px]">
             The medical declaration was restructured into three gates. Gate
             one catches the majority of users (94.5% complete here). Gates
@@ -270,14 +331,18 @@ export default function NewMemberConversionPage() {
             December 2025 now use the new template structure built as part
             of this project.
           </p>
-          <ImagePlaceholder label="Email template system" height={200} />
-          <GapCard
-            title="Price comprehension improvements"
-            description="You noted improved price comprehension as an outcome. Show the before and after of how pricing was presented and what changed."
+          <img
+            src="/work/New-member-conversion/new-emails.png"
+            alt="Email template system"
+            className="w-full h-auto rounded-lg"
+          />
+          <img
+            src="/work/New-member-conversion/price-card-changes.png"
+            alt="Old vs new price cards"
+            className="w-full h-auto rounded-lg"
           />
         </section>
       </Reveal>
-
       {/* Impact */}
       <Reveal delay={100}>
         <section
@@ -294,8 +359,8 @@ export default function NewMemberConversionPage() {
             previous rate.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <ImagePlaceholder label="Conversion rate over time" height={200} />
-            <ImagePlaceholder label="Same-day conversion comparison" height={200} />
+            <NMCConversionLineChart />
+            <NMCConversionChart />
           </div>
           <p className="type-body max-w-[640px]">
             The photo upload experience was also improved as a by-product of
