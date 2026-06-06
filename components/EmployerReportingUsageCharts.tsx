@@ -98,7 +98,7 @@ function UsageChart({
                 return (
                   <text
                     x={props.x}
-                    y={props.y + 10}
+                    y={(Number(props.y) || 0) + 10}
                     textAnchor="middle"
                     fontSize={9}
                     fill="currentColor"
