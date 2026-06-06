@@ -20,7 +20,7 @@ const projects = [
     number: "02",
     title: "Signup and onboarding flow",
     description:
-      "Redesigned the end to end signup and onboarding experience to optimise member conversion, ensure compliance, and reduce legal risk.",
+      "Redesigned the end to end signup and onboarding experience to optimise member conversion, ensure compliance, and reduce legal risk. Increased conversion by 10%, and same day conversion by 180%",
     tags: ["UX Design", "Research", "Conversion", "Compliance"],
     href: "/work/fitness-passport/new-member-conversion"
   },

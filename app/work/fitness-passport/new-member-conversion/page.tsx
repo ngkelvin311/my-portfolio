@@ -308,23 +308,89 @@ export default function NewMemberConversionPage() {
         >
           <p className="type-tagline">Design</p>
           <h2 className="type-body font-medium text-xl">Separation as the core principle</h2>
-          <p className="type-body max-w-[640px]">
+          <p>
             The central design decision was separating signup from onboarding.
-            Each became a focused flow with a single job. Signup: commit and
-            pay. Onboarding: set up your account and complete your profile.
+            Each became a focused flow with a single job. Signup: pick your package and
+            pay. Onboarding: explain approval process and ensure a member is set up to attend facilities.
           </p>
-        <ImagePlaceholder label="Signup flow — key screens" height={280} />
-          <p className="type-body max-w-[640px]">
+         <img
+  src="/work/New-member-conversion/design-screens.png"
+  alt="Gate 2 — medical declaration upon app sign in"
+  className="w-full h-auto rounded-lg"
+/>
+        <p>
+  The map was also redesigned as part of this initiative, not being originally scoped but I pushed to pull it in as it was a huge gap in our experience. It wasn't mobile responsive, the visual design was dated, and facility cards surfaced almost nothing useful. Member conversations made the priority list clear: opening hours, access card fees, the address, and facility type (pool, gym, 24 hour). 
+  </p>
+  <p>
+  Those are the questions someone is answering before they leave the house. The redesign aligned the map with conventions people already know from tools like Google Maps. We focused on recognition over recall, rather than asking users to learn a new interface, the design works with mental models they have already built. It also laid the foundations for future work including premium tiering and facility discovery.
+</p>
+<div className="grid grid-cols-2 gap-6 mt-4">
+  <div>
+    <p className="font-mono text-xs text-zinc-400 uppercase tracking-widest text-center mb-3">Old map</p>
+    <img
+      src="/work/New-member-conversion/old-map.png"
+      alt="Old map design showing dated UI and limited filtering options"
+      className="w-full h-auto rounded-lg"
+    />
+    <ul className="mt-4 space-y-1 text-sm list-disc pl-4">
+      <li>Limited filtering options</li>
+      <li>Non responsive</li>
+      <li>Dated UI</li>
+      <li>Old logo on pins</li>
+      <li>Search and filter usability issues</li>
+      <li>Unclear icon-based activity labels</li>
+    </ul>
+  </div>
+  <div>
+    <p className="font-mono text-xs text-zinc-400 uppercase tracking-widest text-center mb-3">New map</p>
+    <img
+      src="/work/New-member-conversion/new-map.png"
+      alt="Redesigned map showing mobile responsive layout and scannable facility cards"
+      className="w-full h-auto rounded-lg"
+    />
+    <ul className="mt-4 space-y-1 text-sm list-disc pl-4">
+      <li>Mobile responsive</li>
+      <li>Scalable</li>
+      <li>Modern UI</li>
+      <li>Scannable</li>
+      <li>All information upfront and transparent</li>
+      <li>Old logo removed from pins</li>
+    </ul>
+  </div>
+</div>          <p>
             The medical declaration was restructured into three gates. Gate
             one catches the majority of users (94.5% complete here). Gates
-            two and three handle edge cases with appropriate friction, keeping
-            the path clear for members who do not have complex medical needs.
+            two and three handle missing medical details in a natural way, the gating becoming more insistent as a user got closer to attending a facility. This structure balanced legal risk with user experience, ensuring compliance without creating unnecessary friction for the majority of members.
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <ImagePlaceholder label="Gate 1 — medical declaration" height={240} />
-            <ImagePlaceholder label="Gate 2" height={240} />
-            <ImagePlaceholder label="Gate 3" height={240} />
-          </div>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+  <div>
+    <p className="font-mono text-xs text-zinc-400 uppercase tracking-widest text-center" style={{ marginBottom: "16px" }}>Gate 1 — soft</p>
+    <img
+  src="/work/New-member-conversion/gate-1.png"
+  alt="Gate 1 — medical declaration after submit"
+  className="w-full h-auto rounded-lg"
+/>
+    <p className="type-body opacity-60 text-center" style={{ marginTop: "16px" }}>Web declaration after submit</p>
+  </div>
+  <div>
+    <p className="font-mono text-xs text-zinc-400 uppercase tracking-widest text-center" style={{ marginBottom: "16px" }}>Gate 2 — medium</p>
+    <img
+  src="/work/New-member-conversion/gate-2.png"
+  alt="Gate 2 — medical declaration upon app sign in"
+  className="w-full h-auto rounded-lg"
+/>
+    <p className="type-body opacity-60 text-center" style={{ marginTop: "16px" }}>Medical declaration upon app sign in</p>
+  </div>
+  <div>
+    <p className="font-mono text-xs text-zinc-400 uppercase tracking-widest text-center" style={{ marginBottom: "16px" }}>Gate 3 — hard</p>
+    <img
+  src="/work/New-member-conversion/gate-3.png"
+  alt="Gate 3 — medical declaration block"
+  className="w-full h-auto rounded-lg"
+/>
+    <p className="type-body opacity-60 text-center" style={{ marginTop: "16px" }}>Block user from attending facility if no medical declaration</p>
+  </div>
+</div>
           <p className="type-body max-w-[640px]">
             Patterns from the redesign were contributed back to the design
             system foundations. 70% of manual email templates created since

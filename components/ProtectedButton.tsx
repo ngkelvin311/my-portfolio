@@ -78,6 +78,7 @@ export default function ProtectedButton({
     >
       <div
         onClick={(e) => e.stopPropagation()}
+        onMouseDown={(e) => e.stopPropagation()}
         style={{
           width: "100%",
           maxWidth: "560px",
@@ -88,6 +89,8 @@ export default function ProtectedButton({
           gap: "24px",
           background: "#111111",
           border: "1px solid rgba(255,255,255,0.1)",
+          userSelect: "text",
+          WebkitUserSelect: "text",
         }}
       >
         <div
@@ -117,13 +120,13 @@ export default function ProtectedButton({
           </button>
         </div>
 
-        <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-          <p className="type-body" style={{ color: "rgba(255,255,255,0.8)" }}>
+       <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+          <p className="type-body" style={{ color: "rgba(255,255,255,0.8)", userSelect: "text", WebkitUserSelect: "text" }}>
             This section is password protected as it may include confidential
             context. Some details are redacted, but the work and outcomes are
             intact.
           </p>
-          <p className="type-body" style={{ color: "rgba(255,255,255,0.8)" }}>
+          <p className="type-body" style={{ color: "rgba(255,255,255,0.8)", userSelect: "text", WebkitUserSelect: "text" }}>
             Enter the password provided by Kelvin.
           </p>
         </div>
