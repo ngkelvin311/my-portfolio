@@ -4,9 +4,6 @@ import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { useRouter } from "next/navigation";
 
-const STORAGE_KEY = "portfolio-key";
-const CORRECT_KEY = "password1"; // change this to your password
-
 export default function ProtectedButton({
   href,
   children,
@@ -18,7 +15,7 @@ export default function ProtectedButton({
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState("");
   const [error, setError] = useState(false);
-  const [remember, setRemember] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [mounted, setMounted] = useState(false);
   const [unlockHovered, setUnlockHovered] = useState(false);
   const [closeHovered, setCloseHovered] = useState(false);
@@ -28,43 +25,38 @@ export default function ProtectedButton({
   }, []);
 
   function handleClick() {
-  const stored = localStorage.getItem(STORAGE_KEY);
-  if (stored) {
-    const { granted, expires } = JSON.parse(stored);
-    if (granted && Date.now() < expires) {
-      router.push(href);
-      return;
-    } else {
-      localStorage.removeItem(STORAGE_KEY);
-    }
+    document.body.style.overflow = "hidden";
+    setOpen(true);
   }
-  document.body.style.overflow = "hidden";
-  setOpen(true);
-}
 
-  function handleUnlock() {
-  if (input.trim() === CORRECT_KEY) {
-    if (remember) {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify({
-        granted: true,
-        expires: Date.now() + 1000 * 60 * 60 * 24 * 7
-      }));
+  async function handleUnlock() {
+    setLoading(true);
+    setError(false);
+
+    const res = await fetch("/api/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ password: input }),
+    });
+
+    if (res.ok) {
+      document.body.style.overflow = "";
+      setOpen(false);
+      router.push(href);
+    } else {
+      setError(true);
+      setLoading(false);
+      setTimeout(() => setError(false), 2000);
     }
-    document.body.style.overflow = "";
-    setOpen(false);
-    router.push(href);
-  } else {
-    setError(true);
-    setTimeout(() => setError(false), 2000);
   }
-}
 
   function handleClose() {
-  document.body.style.overflow = "";
-  setOpen(false);
-  setInput("");
-  setError(false);
-}
+    document.body.style.overflow = "";
+    setOpen(false);
+    setInput("");
+    setError(false);
+    setLoading(false);
+  }
 
   const modal = open && mounted ? createPortal(
     <div
@@ -111,18 +103,18 @@ export default function ProtectedButton({
             Enter your provided password
           </p>
           <button
-  onClick={handleClose}
-  onMouseEnter={() => setCloseHovered(true)}
-  onMouseLeave={() => setCloseHovered(false)}
-  className="type-meta"
-  style={{
-    color: closeHovered ? "rgba(255,255,255,0.9)" : "rgba(255,255,255,0.4)",
-    transition: "color 200ms ease",
-    cursor: "pointer",
-  }}
->
-  CLOSE
-</button>
+            onClick={handleClose}
+            onMouseEnter={() => setCloseHovered(true)}
+            onMouseLeave={() => setCloseHovered(false)}
+            className="type-meta"
+            style={{
+              color: closeHovered ? "rgba(255,255,255,0.9)" : "rgba(255,255,255,0.4)",
+              transition: "color 200ms ease",
+              cursor: "pointer",
+            }}
+          >
+            CLOSE
+          </button>
         </div>
 
         <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
@@ -158,72 +150,37 @@ export default function ProtectedButton({
           />
           {error && (
             <p className="type-body" style={{ color: "#ef4444" }}>
-              That password is not correct. Try again or request new password.
+              That password is not correct. Try again or request a new password.
             </p>
           )}
-
-       <label
-  onClick={() => setRemember(!remember)}
-  style={{
-    display: "flex",
-    alignItems: "center",
-    gap: "12px",
-    cursor: "pointer",
-    color: "rgba(255,255,255,0.7)",
-  }}
-  className="type-body"
->
-  <div
-    style={{
-      width: "16px",
-      height: "16px",
-      borderRadius: "4px",
-      flexShrink: 0,
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      border: "1.5px solid rgba(255,255,255,0.3)",
-      background: remember ? "rgba(255,255,255,0.9)" : "transparent",
-    }}
-  >
-              {remember && (
-                <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
-                  <path
-                    d="M1 4L3.5 6.5L9 1"
-                    stroke="#111111"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              )}
-            </div>
-            Remember password on this device
-          </label>
         </div>
 
         <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-         <button
-  onClick={handleUnlock}
-  onMouseEnter={() => setUnlockHovered(true)}
-  onMouseLeave={() => setUnlockHovered(false)}
-  className="type-body"
-  style={{
-    width: "100%",
-    padding: "12px 24px",
-    borderRadius: "999px",
-    fontWeight: 500,
-    cursor: "pointer",
-    background: unlockHovered ? "rgba(255,255,255,1)" : "rgba(255,255,255,0.85)",
-    color: "#111111",
-    border: "none",
-    transition: "background 200ms ease",
-  }}
->
-  Unlock case studies
-</button>
+          <button
+            onClick={handleUnlock}
+            onMouseEnter={() => setUnlockHovered(true)}
+            onMouseLeave={() => setUnlockHovered(false)}
+            disabled={loading || !input}
+            className="type-body"
+            style={{
+              width: "100%",
+              padding: "12px 24px",
+              borderRadius: "999px",
+              fontWeight: 500,
+              cursor: loading || !input ? "not-allowed" : "pointer",
+              background: unlockHovered && !loading && input
+                ? "rgba(255,255,255,1)"
+                : "rgba(255,255,255,0.85)",
+              color: "#111111",
+              border: "none",
+              transition: "background 200ms ease",
+              opacity: loading || !input ? 0.5 : 1,
+            }}
+          >
+            {loading ? "Checking..." : "Unlock case studies"}
+          </button>
           <a
-            href="mailto:your@email.com"
+            href="mailto:ngkelvin311@gmail.com"
             className="type-body"
             style={{
               width: "100%",
@@ -243,16 +200,16 @@ export default function ProtectedButton({
     document.body
   ) : null;
 
- return (
-  <>
-    <button
-      onClick={handleClick}
-      className="inline-flex w-fit items-center justify-center gap-2 whitespace-nowrap rounded-full bg-text px-6 py-3 font-body text-16 leading-none no-underline shadow-soft transition-colors duration-200 hover:opacity-90 hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
-      style={{ color: "rgb(var(--chip-active-text))", textDecoration: "none", border: "none" }}
-    >
-      {children}
-    </button>
-    {modal}
-  </>
-);
+  return (
+    <>
+      <button
+        onClick={handleClick}
+        className="inline-flex w-fit items-center justify-center gap-2 whitespace-nowrap rounded-full bg-text px-6 py-3 font-body text-16 leading-none no-underline shadow-soft transition-colors duration-200 hover:opacity-90 hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
+        style={{ color: "rgb(var(--chip-active-text))", textDecoration: "none", border: "none" }}
+      >
+        {children}
+      </button>
+      {modal}
+    </>
+  );
 }
