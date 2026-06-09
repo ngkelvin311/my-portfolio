@@ -1,4 +1,3 @@
-// middleware.ts (root of your project)
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
@@ -17,5 +16,11 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL("/login", request.url));
   }
 
-  return NextResponse.next();
+  const response = NextResponse.next();
+  response.headers.set("X-Robots-Tag", "noindex, nofollow");
+  return response;
 }
+
+export const config = {
+  matcher: ["/work/:path*"],
+};
