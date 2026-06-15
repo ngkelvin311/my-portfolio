@@ -66,7 +66,7 @@ export default function DesignSystemCaseStudy() {
           <h1 className="type-display-sm font-black">
             Building Horizon: Design System from Zero to Adoption
           </h1>
-          <p className="type-body" style={{ maxWidth: 720, color: "rgb(var(--muted))" }}>
+          <p className="type-body" style={{ color: "rgb(var(--muted))" }}>
             Fitness Passport had no shared design language. Designers worked in
             isolation, engineering rebuilt the same components repeatedly, and
             every change was a manual select and replace. I built the foundations, the
@@ -113,9 +113,29 @@ export default function DesignSystemCaseStudy() {
             className="w-full h-auto"
           />
         </div>
-
-        
       </header>
+
+      {/* ── My role ───────────────────────────────────────── */}
+      {/* Moved above Results so readers know who owned this before the metrics land */}
+      <section
+        className="flex flex-col gap-6 pt-8"
+        style={{ borderTop: "1px solid rgb(var(--border))" }}
+      >
+        <p className="type-tagline">My role</p>
+        {/* DS Champions Image */}
+        <div className="w-full rounded-lg overflow-hidden">
+          <img
+            src="/work/Design-system/ds-champions.png"
+            alt="Design System Chamipons Group"
+            className="w-full h-auto"
+          />
+        </div>
+        <p className="type-body">
+          I owned the design system end to end. Strategy, execution, stakeholder
+          alignment, contribution model, and the handoff process between design
+          and engineering. There was no resource for a dedicated team. I was building this alongside product work while selling the value of the system and driving a design system champions group. This consisted of product managers, engineers and designers who all believed in the cause and helped push for adoption across their teams. I also partnered closely with tech leads to ensure the system was built in a way that met the needs of engineers and was feasible within the constraints of the legacy codebase.
+        </p>
+      </section>
 
       {/* ── Results ───────────────────────────────────────── */}
       <section className="flex flex-col gap-8">
@@ -145,27 +165,13 @@ export default function DesignSystemCaseStudy() {
         />
       </section>
 
-      {/* ── My role ───────────────────────────────────────── */}
-      <section
-        className="flex flex-col gap-6 pt-8"
-        style={{ borderTop: "1px solid rgb(var(--border))" }}
-      >
-        <p className="type-tagline">My role</p>
-        <p className="type-body" style={{ maxWidth: 720 }}>
-          I owned the design system end to end. Strategy, execution, stakeholder
-          alignment, contribution model, and the handoff process between design
-          and engineering. There was no resource for a dedicated team. I was building this
-          alongside product work while selling the value of the system and driving a design system champions group. This consisted of product managers, engineers and designers who all believed in the cause and helped push for adoption across their teams. I also partnered closely with the engineering manager and tech lead to ensure the system was built in a way that met the needs of engineers and was feasible within the constraints of the legacy codebase.
-        </p>
-      </section>
-
       {/* ── The problem ───────────────────────────────────── */}
       <section
         className="flex flex-col gap-8 pt-8"
         style={{ borderTop: "1px solid rgb(var(--border))" }}
       >
         <p className="type-tagline">The problem</p>
-        <div className="flex flex-col gap-6" style={{ maxWidth: 720 }}>
+        <div className="flex flex-col gap-6">
           <p className="type-body">
             Before this project, there was no shared design language at Fitness
             Passport. Every screen started from scratch. Designers would
@@ -193,128 +199,130 @@ export default function DesignSystemCaseStudy() {
           </p>
         </div>
 
-        {/* Problem image placeholder */}
-       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="flex flex-col gap-2">
-              <div className="w-full rounded-lg overflow-hidden">
-                <img
-                  src="/work/design-system/sign-in-screen-old.jpg"
-                  alt="Old sign in screen"
-                  className="w-full h-auto"
-                />
-              </div>
-            </div>
-            <div className="flex flex-col gap-2">
-              <div className="w-full rounded-lg overflow-hidden">
-                <img
-                  src="/work/design-system/portal-UI-old.jpg"
-                  alt="Old portal UI"
-                  className="w-full h-auto"
-                />
-              </div>
+        {/* Problem images */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="flex flex-col gap-2">
+            <div className="w-full rounded-lg overflow-hidden">
+              <img
+                src="/work/design-system/sign-in-screen-old.jpg"
+                alt="Old sign in screen"
+                className="w-full h-auto"
+              />
             </div>
           </div>
+          <div className="flex flex-col gap-2">
+            <div className="w-full rounded-lg overflow-hidden">
+              <img
+                src="/work/design-system/portal-UI-old.jpg"
+                alt="Old portal UI"
+                className="w-full h-auto"
+              />
+            </div>
+          </div>
+        </div>
       </section>
-{/* ── Approach ──────────────────────────────────────── */}
-<section
-  className="flex flex-col gap-8 pt-8"
-  style={{ borderTop: "1px solid rgb(var(--border))" }}
->
-  <p className="type-tagline">Approach</p>
-  <div className="flex flex-col gap-6" style={{ maxWidth: 720 }}>
-    <p className="type-body">
-      I started with a blank slate. Everything: every component, every
-      guideline, every token, was built from the ground up. My role was to
-      own this across design and engineering, set the direction, make the
-      calls, and keep both sides moving toward the same system.
-    </p>
-    <p className="type-body">
-      The sequencing mattered. The principle I worked from, drawn from the
-      Design Systems Handbook by Suarez et al, is what they call{" "}
-      <strong className="font-medium">tokens as contracts</strong>: you
-      define the named language first (colour, typography, spacing) so
-      that when you build components, they are already speaking the same
-      vocabulary as the codebase. Skip this step and you are building on
-      sand.
-    </p>
-  </div>
 
-  {/* Token image — outside the 720 cap so it runs full width */}
-  <div className="w-full rounded-lg overflow-hidden">
-    <img
-      src="/work/Design-system/design-system-tokens.png"
-      alt="Design System Tokens"
-      className="w-full h-auto"
-    />
-  </div>
-
-    <div className="flex flex-col gap-6" style={{ maxWidth: 720 }}>
-    <p className="type-body">
-      I structured the work across three horizons, a sequencing model
-      adapted from strategic planning: near term foundations, mid-term
-      scale, long-term sync. Rather than trying to build everything at
-      once and delivering nothing, each horizon is completable on its own
-      while keeping the long-term architecture in view.
-    </p>
-  </div>
-
-  <div className="grid grid-cols-1 tablet:grid-cols-3 gap-4">
-    <div
-      className="flex flex-col gap-3 rounded-lg p-6"
-      style={{ background: "rgb(var(--surface))", border: "1px solid rgb(var(--border))" }}
-    >
-      <div className="flex items-center justify-between">
-        <p className="type-tagline">Horizon 01</p>
-        <div className="flex items-center gap-2">
-          <span className="inline-block w-2 h-2 rounded-full" style={{ background: "#22c55e" }} />
-          <span className="type-meta" style={{ color: "#22c55e" }}>Complete</span>
+      {/* ── Approach ──────────────────────────────────────── */}
+      <section
+        className="flex flex-col gap-8 pt-8"
+        style={{ borderTop: "1px solid rgb(var(--border))" }}
+      >
+        <p className="type-tagline">Approach</p>
+        <div className="flex flex-col gap-6">
+          <p className="type-body">
+            I started with a blank slate. Everything: every component, every
+            guideline, every token, was built from the ground up. My role was to
+            own this across design and engineering, set the direction, make the
+            calls, and keep both sides moving toward the same system.
+          </p>
+          <p className="type-body">
+            The sequencing was everything. The principle I worked from, drawn from the
+            Design Systems Handbook by Suarez et al, is what they call{" "}
+            <strong className="font-medium">tokens as contracts</strong>: you
+            define the named language first (colour, typography, spacing) so
+            that when you build components, they are already speaking the same
+            vocabulary as the codebase.
+          </p>
         </div>
-      </div>
-      <p className="type-body-emphasis">Foundation</p>
-      <p className="type-body" style={{ color: "rgb(var(--muted))" }}>
-        Semantic colour system, Oxygen typography, 8px spacing grid, Material icons, initial Figma tokens, contribution model v1.
-      </p>
-      <p className="type-meta" style={{ color: "rgb(var(--muted))", marginTop: "auto" }}>0 to 6 months</p>
-    </div>
 
-    <div
-      className="flex flex-col gap-3 rounded-lg p-6"
-      style={{ background: "rgb(var(--surface))", border: "1px solid rgb(var(--border))" }}
-    >
-      <div className="flex items-center justify-between">
-        <p className="type-tagline">Horizon 02</p>
-        <div className="flex items-center gap-2">
-          <span className="inline-block w-2 h-2 rounded-full" style={{ background: "#eab308" }} />
-          <span className="type-meta" style={{ color: "#eab308" }}>In progress</span>
+        {/* Token image — full width */}
+        <div className="w-full rounded-lg overflow-hidden">
+          <img
+            src="/work/Design-system/design-system-tokens.png"
+            alt="Design System Tokens"
+            className="w-full h-auto"
+          />
         </div>
-      </div>
-      <p className="type-body-emphasis">Scale</p>
-      <p className="type-body" style={{ color: "rgb(var(--muted))" }}>
-        Core components in Figma and code, contribution model live, mobile foundations, email templates, AI workflow in progress.
-      </p>
-      <p className="type-meta" style={{ color: "rgb(var(--muted))", marginTop: "auto" }}>6 to 12 months</p>
-    </div>
+        <p className="type-body">
+          Our token system drilled down into the smallest details. The colour system included a full palette of semantic tokens, each with light and dark mode variants, mapped to a base scale of raw colour values. The typography system included a full range of responsive type styles, mapped to a base scale of font sizes, line heights, and letter spacing values. The spacing system was built on an 8px grid with named tokens for common use cases like "component spacing" or "border radius". We were utilised Figma's powerful variable system to allow switching between light and dark modes and web to mobile at a single click, reducing the amount of manual design work required. No longer would we have to build every single frame and screen for handoff, we could build the component once and let the tokens handle the rest.
+        </p>
 
-    <div
-      className="flex flex-col gap-3 rounded-lg p-6"
-      style={{ background: "rgb(var(--surface))", border: "1px solid rgb(var(--border))" }}
-    >
-      <div className="flex items-center justify-between">
-        <p className="type-tagline">Horizon 03</p>
-        <div className="flex items-center gap-2">
-          <span className="inline-block w-2 h-2 rounded-full" style={{ background: "rgb(var(--muted))" }} />
-          <span className="type-meta" style={{ color: "rgb(var(--muted))" }}>Roadmap</span>
+        <div className="flex flex-col gap-6">
+          <p className="type-body">
+            I structured the work across three horizons, a sequencing model
+            adapted from strategic planning: near term foundations, mid-term
+            scale, long-term sync. Rather than trying to build everything at
+            once and delivering nothing, each horizon is completable on its own
+            while keeping the long-term architecture in view.
+          </p>
         </div>
-      </div>
-      <p className="type-body-emphasis">Sync</p>
-      <p className="type-body" style={{ color: "rgb(var(--muted))" }}>
-        Figma tokens mapped to Tailwind config, AI-themed Shadcn library, self-hosted component docs, versioned changelog.
-      </p>
-      <p className="type-meta" style={{ color: "rgb(var(--muted))", marginTop: "auto" }}>12 to 24 months</p>
-    </div>
-  </div>
-</section>
 
+        <div className="grid grid-cols-1 tablet:grid-cols-3 gap-4">
+          <div
+            className="flex flex-col gap-3 rounded-lg p-6"
+            style={{ background: "rgb(var(--surface))", border: "1px solid rgb(var(--border))" }}
+          >
+            <div className="flex items-center justify-between">
+              <p className="type-tagline">Horizon 01</p>
+              <div className="flex items-center gap-2">
+                <span className="inline-block w-2 h-2 rounded-full" style={{ background: "#22c55e" }} />
+                <span className="type-meta" style={{ color: "#22c55e" }}>Complete</span>
+              </div>
+            </div>
+            <p className="type-body-emphasis">Foundation</p>
+            <p className="type-body" style={{ color: "rgb(var(--muted))" }}>
+              Semantic colour system, Oxygen typography, 8px spacing grid, Material icons, initial Figma tokens, contribution model v1.
+            </p>
+            <p className="type-meta" style={{ color: "rgb(var(--muted))", marginTop: "auto" }}>0 to 6 months</p>
+          </div>
+
+          <div
+            className="flex flex-col gap-3 rounded-lg p-6"
+            style={{ background: "rgb(var(--surface))", border: "1px solid rgb(var(--border))" }}
+          >
+            <div className="flex items-center justify-between">
+              <p className="type-tagline">Horizon 02</p>
+              <div className="flex items-center gap-2">
+                <span className="inline-block w-2 h-2 rounded-full" style={{ background: "#eab308" }} />
+                <span className="type-meta" style={{ color: "#eab308" }}>In progress</span>
+              </div>
+            </div>
+            <p className="type-body-emphasis">Scale</p>
+            <p className="type-body" style={{ color: "rgb(var(--muted))" }}>
+              Core components in Figma and code, contribution model live, mobile foundations, email templates, AI workflow in progress.
+            </p>
+            <p className="type-meta" style={{ color: "rgb(var(--muted))", marginTop: "auto" }}>6 to 12 months</p>
+          </div>
+
+          <div
+            className="flex flex-col gap-3 rounded-lg p-6"
+            style={{ background: "rgb(var(--surface))", border: "1px solid rgb(var(--border))" }}
+          >
+            <div className="flex items-center justify-between">
+              <p className="type-tagline">Horizon 03</p>
+              <div className="flex items-center gap-2">
+                <span className="inline-block w-2 h-2 rounded-full" style={{ background: "rgb(var(--muted))" }} />
+                <span className="type-meta" style={{ color: "rgb(var(--muted))" }}>Roadmap</span>
+              </div>
+            </div>
+            <p className="type-body-emphasis">Sync</p>
+            <p className="type-body" style={{ color: "rgb(var(--muted))" }}>
+              Figma tokens mapped to Tailwind config, AI-themed Shadcn library, self-hosted component docs, versioned changelog.
+            </p>
+            <p className="type-meta" style={{ color: "rgb(var(--muted))", marginTop: "auto" }}>12 to 24 months</p>
+          </div>
+        </div>
+      </section>
 
       {/* ── The contribution model ────────────────────────── */}
       <section
@@ -322,7 +330,7 @@ export default function DesignSystemCaseStudy() {
         style={{ borderTop: "1px solid rgb(var(--border))" }}
       >
         <p className="type-tagline">The contribution model</p>
-        <div className="flex flex-col gap-6" style={{ maxWidth: 720 }}>
+        <div className="flex flex-col gap-6">
           <p className="type-body">
             Getting a design system adopted is not a design problem. It is a
             culture and process problem.
@@ -330,7 +338,7 @@ export default function DesignSystemCaseStudy() {
           <p className="type-body">
             I established a contribution model that defined how any designer or
             engineer could add to the system without it becoming a bottleneck.
-            <strong className="font-medium">If the cost of contribution is low
+            <strong className="font-medium"> If the cost of contribution is low
             enough, teams use the system instead of going around it.</strong>
           </p>
           <p className="type-body">
@@ -351,7 +359,7 @@ export default function DesignSystemCaseStudy() {
           />
         </div>
 
-{/* Button example */}
+        {/* Button example */}
         <details
           className="rounded-lg overflow-hidden"
           style={{ border: "1px solid rgb(var(--border))" }}
@@ -360,7 +368,7 @@ export default function DesignSystemCaseStudy() {
             className="flex items-center justify-between gap-4 p-6 cursor-pointer list-none"
             style={{ background: "rgb(var(--surface))" }}
           >
-            <p className="type-body-emphasis">The button: a worked example</p>
+            <p className="type-body-emphasis">The Humble Button: a worked example</p>
             <span className="type-meta" style={{ color: "rgb(var(--muted))", flexShrink: 0 }}>
               View example
             </span>
@@ -370,7 +378,7 @@ export default function DesignSystemCaseStudy() {
             className="flex flex-col gap-6 p-6"
             style={{ borderTop: "1px solid rgb(var(--border))" }}
           >
-            <div className="flex flex-col gap-4" style={{ maxWidth: 720 }}>
+            <div className="flex flex-col gap-4">
               <p className="type-body">
                 The product team needed a button component for a new signup
                 experience. They built three variants to standard: primary,
@@ -396,7 +404,7 @@ export default function DesignSystemCaseStudy() {
                   step: "01",
                   label: "Need identified",
                   description:
-                    "Signup experience required buttons. Product team built primary, secondary, and destructive variants to standard.",
+                    "Signup experience required buttons. Designed primary, secondary, and destructive variants in Figma while working on new signup flow.",
                 },
                 {
                   step: "02",
@@ -408,13 +416,13 @@ export default function DesignSystemCaseStudy() {
                   step: "03",
                   label: "Added to system",
                   description:
-                    "Component entered the code library and Figma. Every team that followed consumed it for free.",
+                    "Component entered the code library. Every team that followed consumed it for free.",
                 },
                 {
                   step: "04",
                   label: "Extended",
                   description:
-                    "A second team needed tertiary. Built it, contributed it back. The button family grew on demand, not speculation.",
+                    "A second team needed tertiary. Built it, contributed it back to the codebase. The button family grew on demand, ensuring velocity while not duplicating efforts.",
                 },
               ].map((item) => (
                 <div
@@ -426,10 +434,10 @@ export default function DesignSystemCaseStudy() {
                   }}
                 >
                   <p className="type-tagline">{item.step}</p>
-                  <p className="type-body-emphasis">{item.label}</p>
+                  <p className="type-meta">{item.label}</p>
                   <p
-                    className="type-meta"
-                    style={{ color: "rgb(var(--muted))", marginTop: "auto" }}
+                    className="type-body"
+                    style={{ color: "rgb(var(--muted))" }}
                   >
                     {item.description}
                   </p>
@@ -440,76 +448,15 @@ export default function DesignSystemCaseStudy() {
         </details>
       </section>
 
-      {/* ── Handoff before and after ──────────────────────── */}
-      <section
-        className="flex flex-col gap-8 pt-8"
-        style={{ borderTop: "1px solid rgb(var(--border))" }}
-      >
-        <p className="type-tagline">Handoff before and after</p>
-
-        <div className="grid grid-cols-1 tablet:grid-cols-2 gap-4">
-          <div
-            className="flex flex-col gap-4 rounded-lg p-6"
-            style={{
-              background: "rgb(var(--surface))",
-              border: "1px solid rgb(var(--border))",
-            }}
-          >
-            <p className="type-tagline" style={{ color: "rgb(var(--muted))" }}>
-              Before
-            </p>
-            <p className="type-body">
-              Engineers opened a Figma file and made guesses. Spacing was
-              approximated. States were assumed. Dark mode behaviour was
-              inferred. The gap between design intent and built output required
-              a dedicated QA pass on almost every component.
-            </p>
-          </div>
-          <div
-            className="flex flex-col gap-4 rounded-lg p-6"
-            style={{
-              background: "rgb(var(--surface))",
-              border: "1px solid rgb(var(--border))",
-            }}
-          >
-            <p className="type-tagline">After</p>
-            <p className="type-body">
-              Engineers open the component library and the decisions are already
-              made. Token names in Figma match token names in the Tailwind
-              config. There is no translation layer. Consistency is checked
-              once, at the point of component build. Not at every handoff.
-            </p>
-          </div>
-        </div>
-
-        {/* Hulsbosch moment */}
-        <div
-          className="flex flex-col gap-4 rounded-lg p-6"
-          style={{ border: "1px solid rgb(var(--border))" }}
-        >
-          <p className="type-tagline">The rebrand proof point</p>
-          <p className="type-body" style={{ maxWidth: 720 }}>
-            The best test of a token system is what happens when something
-            changes. When the Hulsbosch brand direction required a theme update,
-            the token aliasing layer meant the change cascaded across every
-            component in hours. One swap at the semantic token layer, not a
-            file-by-file rebuild. What would previously have taken weeks took a
-            single working session.
-          </p>
-          <GapCard
-            title="Add the exact time comparison here"
-            description="How long did the Hulsbosch update actually take? And how long would the same change have taken before the system existed? That specific contrast is the number that makes this story land."
-          />
-        </div>
-      </section>
-
       {/* ── Adoption ──────────────────────────────────────── */}
+      {/* Moved above Handoff: sits as the evidence base that the contribution model worked,
+          before we show what the system enabled in practice */}
       <section
         className="flex flex-col gap-8 pt-8"
         style={{ borderTop: "1px solid rgb(var(--border))" }}
       >
         <p className="type-tagline">Adoption</p>
-        <div className="flex flex-col gap-6" style={{ maxWidth: 720 }}>
+        <div className="flex flex-col gap-6">
           <p className="type-body">
             20 of 26 components are actively used across the monorepo, a 76.9%
             adoption rate with 91 total import instances. The highest-use
@@ -547,14 +494,105 @@ export default function DesignSystemCaseStudy() {
           ))}
         </div>
       </section>
-{/* ── Embracing AI ──────────────────────────────────── */}
+
+      {/* ── Handoff before and after ──────────────────────── */}
+      <section
+        className="flex flex-col gap-8 pt-8"
+        style={{ borderTop: "1px solid rgb(var(--border))" }}
+      >
+        <p className="type-tagline">Handoff before and after</p>
+
+        <div className="grid grid-cols-1 tablet:grid-cols-2 gap-4">
+          <div
+            className="flex flex-col gap-4 rounded-lg p-6"
+            style={{
+              background: "rgb(var(--surface))",
+              border: "1px solid rgb(var(--border))",
+            }}
+          >
+            <p className="type-tagline" style={{ color: "rgb(var(--muted))" }}>
+              Before
+            </p>
+            <p className="type-body">
+              Engineers opened a Figma file and made guesses. Spacing was
+              approximated. States were assumed. Dark mode behaviour was
+              inferred. The gap between design intent and built output required
+              a dedicated QA pass on almost every component.
+            </p>
+          </div>
+          <div
+            className="flex flex-col gap-4 rounded-lg p-6"
+            style={{
+              background: "rgb(var(--surface))",
+              border: "1px solid #22c55e",
+            }}
+          >
+            <p className="type-tagline" style={{ color: "#22c55e" }}>After</p>
+            <p className="type-body">
+              Engineers open the component library and the decisions are already
+              made. Token names in Figma match token names in the Tailwind
+              config. There is no translation layer. Consistency is checked
+              once, at the point of component build. Not at every handoff.
+            </p>
+          </div>
+        </div>
+
+        {/* Rebrand proof point — token architecture validation */}
+        <div
+          className="flex flex-col gap-4 rounded-lg p-6"
+          style={{ border: "1px solid rgb(var(--border))" }}
+        >
+          <p className="type-tagline">The rebrand proof point</p>
+          <p className="type-body">
+            The best test of a token system is what happens when something
+            changes. When a new interim brand direction required a theme update,
+            the token setup meant the change cascaded across every
+            component in hours. One swap at the base token layer instead of a file-by-file rebuild. What would previously have taken days or weeks took a
+            single working session.
+          </p>
+          <div className="grid grid-cols-1 tablet:grid-cols-3 gap-4 pt-2">
+            <div
+              className="flex flex-col gap-2 rounded-lg p-5"
+              style={{ background: "rgb(var(--surface))", border: "1px solid rgb(var(--border))" }}
+            >
+              <p className="type-display-sm font-black">273</p>
+              <p className="type-body" style={{ color: "rgb(var(--muted))" }}>
+                Component variants in the file at the time of the update.
+              </p>
+            </div>
+            <div
+              className="flex flex-col gap-2 rounded-lg p-5"
+              style={{ background: "rgb(var(--surface))", border: "1px solid rgb(var(--border))" }}
+            >
+              <p className="type-display-sm font-black">90 min</p>
+              <p className="type-body" style={{ color: "rgb(var(--muted))" }}>
+                To define a new blue scale and font, apply it to base tokens, and cascade it across the component file and the wider Figma team file.
+              </p>
+            </div>
+            <div
+              className="flex flex-col gap-2 rounded-lg p-5"
+              style={{ background: "rgb(var(--surface))", border: "1px solid rgb(var(--border))" }}
+            >
+              <p className="type-display-sm font-black">50%</p>
+              <p className="type-body" style={{ color: "rgb(var(--muted))" }}>
+                Of that time was QA. As this was our stress test, we needed to ensure every component had picked up the new values and understand where it didn't. The update itself was near instant.
+              </p>
+            </div>
+          </div>
+          <p className="type-body">
+            Without the token system, 273 variants means a huge amount of manual colour swaps and font changes. Open the file, find every instance, change the value, check the states, move on. Days of work, minimum, with a second pass to catch the misses. With the token system in place, the change cascaded across both files in a single session. The architecture did what it was built to do.
+          </p>
+        </div>
+      </section>
+
+      {/* ── Embracing AI ──────────────────────────────────── */}
       <section
         className="flex flex-col gap-8 pt-8"
         style={{ borderTop: "1px solid rgb(var(--border))" }}
       >
         <p className="type-tagline">Embracing AI</p>
 
-        <div className="flex flex-col gap-6" style={{ maxWidth: 720 }}>
+        <div className="flex flex-col gap-6">
           <p className="type-body">
             Most design systems treat AI as a bolt-on. We built the foundation so
             AI had something real to work with.
@@ -570,27 +608,27 @@ export default function DesignSystemCaseStudy() {
           </p>
         </div>
 
-        {/* Stress test */}
+        {/* Stress test — AI workflow validation, distinct from the token architecture proof in Handoff */}
         <div
           className="flex flex-col gap-4 rounded-lg p-6"
           style={{ border: "1px solid rgb(var(--border))" }}
         >
           <p className="type-tagline">The stress test</p>
-          <p className="type-body" style={{ maxWidth: 720 }}>
+          <p className="type-body">
             An interim brand kit landed while a larger SLT-sponsored brand update
             was still in motion. We could have waited. Instead we used it as a
-            live stress test for the AI workflow and the token architecture. The
-            AI updated variables and tokens across the entire Figma system in
-            hours. The same task in a previous workflow, without the structure,
-            would have required days of manual file-by-file searching, missed
-            instances, and a second pass to catch the gaps. One unplanned
-            exercise proved the architecture worked before the real brand update
-            arrived.
+            live stress test. The token architecture side of that story sits in
+            the handoff section: the tokens held, 273 variants updated in a
+            single session. This was a different question. We already knew the
+            architecture worked. The question was whether the AI workflow was
+            ready to carry the load. The AI updated variables and tokens across
+            the entire Figma system in hours. One unplanned exercise proved
+            the AI layer before the real brand update arrived.
           </p>
         </div>
 
         {/* Decoupling */}
-        <div className="flex flex-col gap-6" style={{ maxWidth: 720 }}>
+        <div className="flex flex-col gap-6">
           <p className="type-body-emphasis">Decoupling from Storybook</p>
           <p className="type-body">
             Component documentation lived in Storybook. Engineers used it.
@@ -616,68 +654,125 @@ export default function DesignSystemCaseStudy() {
         </div>
 
         {/* Pipeline */}
-        <div className="grid grid-cols-2 tablet:grid-cols-4 gap-3">
-          {[
-            {
-              index: "01",
-              label: "Figma",
-              description: "Design source, variables, component library",
-              status: null,
-            },
-            {
-              index: "02",
-              label: "Component repo",
-              description: "Shadcn base, themed to spec, guidelines inline",
-              status: null,
-            },
-            {
-              index: "03",
-              label: "GitHub",
-              description: "Version control, review, deployment",
-              status: null,
-            },
-            {
-              index: "04",
-              label: "Claude",
-              description: "AI workflow, Claude design integration",
-              status: "In progress",
-            },
-          ].map((node) => (
+        <div className="flex flex-col gap-8">
+
+          {/* Header row */}
+          <div className="flex flex-col gap-2">
+            <p className="type-tagline">Proposed AI powered workflow</p>
+            <p className="type-body" style={{ color: "rgb(var(--muted))" }}>
+              Tokens defined at the base level with AI doing the heavy lifting.
+            </p>
+          </div>
+
+          {/* Arrow */}
+          <div
+            className="w-full h-10"
+            style={{
+              background: "rgb(var(--surface))",
+              clipPath: "polygon(0 0, calc(100% - 40px) 0, 100% 50%, calc(100% - 40px) 100%, 0 100%)",
+            }}
+          />
+
+          {/* Steps */}
+          <div className="grid grid-cols-2 tablet:grid-cols-4 gap-4">
+
+            {/* Step 1 */}
             <div
-              key={node.label}
-              className="flex flex-col gap-2 rounded-lg p-5"
-              style={{
-                background: "rgb(var(--surface))",
-                border: "1px solid rgb(var(--border))",
-              }}
+              className="flex flex-col gap-3 rounded-lg p-5"
+              style={{ background: "rgb(var(--surface))", border: "1px solid rgb(var(--border))" }}
             >
               <div className="flex items-center justify-between">
-                <p className="type-tagline">{node.index}</p>
-                {node.status && (
-                  <div className="flex items-center gap-1.5">
-                    <span
-                      className="inline-block w-1.5 h-1.5 rounded-full"
-                      style={{ background: "#eab308" }}
-                    />
-                    <span className="type-meta" style={{ color: "#eab308" }}>
-                      {node.status}
-                    </span>
-                  </div>
-                )}
+                <p className="type-tagline">01</p>
+                <div className="flex items-center gap-1.5">
+                  <span className="inline-block w-1.5 h-1.5 rounded-full" style={{ background: "#22c55e" }} />
+                  <span className="type-meta" style={{ color: "#22c55e" }}>Done</span>
+                </div>
               </div>
-              <p className="type-body-emphasis">{node.label}</p>
-              <p
-                className="type-meta"
-                style={{ color: "rgb(var(--muted))", marginTop: "auto" }}
-              >
-                {node.description}
+              <p className="type-tagline">Base tokens</p>
+              <p className="type-body" style={{ color: "rgb(var(--muted))" }}>
+                Design defined tokens: Brand, Alias, Semantic.
+              </p>
+              <p className="type-body" style={{ color: "rgb(var(--muted))" }}>
+                Colors, type, spacing, radius from our solidified H1 foundations.
               </p>
             </div>
-          ))}
+
+            {/* Step 2 */}
+            <div
+              className="flex flex-col gap-3 rounded-lg p-5"
+              style={{ background: "rgb(var(--surface))", border: "1px solid rgb(var(--border))" }}
+            >
+              <div className="flex items-center justify-between">
+                <p className="type-tagline">02</p>
+                <div className="flex items-center gap-1.5">
+                  <span className="inline-block w-1.5 h-1.5 rounded-full" style={{ background: "#eab308" }} />
+                  <span className="type-meta" style={{ color: "#eab308" }}>In progress</span>
+                </div>
+              </div>
+              <p className="type-tagline">Mapping alignment</p>
+              <p className="type-body" style={{ color: "rgb(var(--muted))" }}>
+                Tokens mapped by engineering to code.
+              </p>
+              <p className="type-body" style={{ color: "rgb(var(--muted))" }}>
+                Same structure as design to align for ease of use and consistency.
+              </p>
+            </div>
+
+            {/* Step 3 */}
+            <div
+              className="flex flex-col gap-3 rounded-lg p-5"
+              style={{ background: "rgb(var(--surface))", border: "1px solid rgb(var(--border))" }}
+            >
+              <div className="flex items-center justify-between">
+                <p className="type-tagline">03</p>
+                <div className="flex items-center gap-1.5">
+                  <span className="inline-block w-1.5 h-1.5 rounded-full" style={{ background: "#8b5cf6" }} />
+                  <span className="type-meta" style={{ color: "#8b5cf6" }}>Engineering POC</span>
+                </div>
+              </div>
+              <p className="type-tagline">Hosted library</p>
+              <p className="type-body" style={{ color: "rgb(var(--muted))" }}>
+                Host code library ourselves with no external dependency.
+              </p>
+              <p className="type-body" style={{ color: "rgb(var(--muted))" }}>
+                Show design spec, guidelines, token reference and code snippets, all ready to use.
+              </p>
+            </div>
+
+            {/* Step 4 */}
+            <div
+              className="flex flex-col gap-3 rounded-lg p-5"
+              style={{ background: "rgb(var(--surface))", border: "1px solid rgb(var(--border))" }}
+            >
+              <div className="flex items-center justify-between">
+                <p className="type-tagline">04</p>
+                <div className="flex items-center gap-1.5">
+                  <span className="inline-block w-1.5 h-1.5 rounded-full" style={{ background: "#8b5cf6" }} />
+                  <span className="type-meta" style={{ color: "#8b5cf6" }}>Engineering POC</span>
+                </div>
+              </div>
+              <p className="type-tagline">AI theming</p>
+              <p className="type-body" style={{ color: "rgb(var(--muted))" }}>
+                Use AI to pull code components from existing library on an as-needs basis.
+              </p>
+              <p className="type-body" style={{ color: "rgb(var(--muted))" }}>
+                AI applies shared tokens to components. Themes as it builds.
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+        <div className="w-full rounded-lg overflow-hidden">
+          <img
+            src="/work/Design-system/hosted-library.png"
+            alt="FP hosted component library"
+            className="w-full h-auto"
+          />
         </div>
 
         {/* Bidirectional sync */}
-        <div className="flex flex-col gap-6" style={{ maxWidth: 720 }}>
+        <div className="flex flex-col gap-6">
           <p className="type-body-emphasis">The bridge, in both directions</p>
           <p className="type-body">
             The longer-term direction is bidirectional sync. Tools like Tokens
@@ -701,7 +796,7 @@ export default function DesignSystemCaseStudy() {
           style={{ border: "1px solid rgb(var(--border))" }}
         >
           <p className="type-tagline">What this unlocks for prototyping</p>
-          <p className="type-body" style={{ maxWidth: 720 }}>
+          <p className="type-body">
             Connecting this workflow to Claude changes what prototyping means in
             practice. Complex logic that currently takes days to simulate in Figma
             becomes testable in near-production conditions. The principle here is
@@ -712,7 +807,7 @@ export default function DesignSystemCaseStudy() {
             that fidelity forward, earlier in the process, without the manual
             overhead it previously required.
           </p>
-          <p className="type-body" style={{ maxWidth: 720, marginTop: 4 }}>
+          <p className="type-body" style={{ marginTop: 4 }}>
             For teams without a design resource, this changes self-service.
             They work against real components while the system keeps them
             consistent. Handoff documentation shrinks because the prototype
@@ -720,22 +815,31 @@ export default function DesignSystemCaseStudy() {
             interaction states, not just the ones that fit across a finite set of
             static screens.
           </p>
-          <p className="type-body" style={{ maxWidth: 720, marginTop: 4 }}>
+          <p className="type-body" style={{ marginTop: 4 }}>
             None of this replaces design thinking. It removes the overhead that
             gets in the way of it.
           </p>
         </div>
       </section>
+
       {/* ── Reflection ────────────────────────────────────── */}
       <section
         className="flex flex-col gap-6 pt-8"
         style={{ borderTop: "1px solid rgb(var(--border))" }}
       >
         <p className="type-tagline">Reflection</p>
-        <GapCard
-          title="Write one honest paragraph here"
-          description="What do you know now about building a design system inside a product team that you did not know at the start? What would you do differently? What were the hardest moments to navigate? This section reads as the most senior part of the whole case study."
-        />
+        <p className="type-body">
+          The hardest part of this project had nothing to do with Figma. It was learning to project manage an initiative whose value was almost entirely invisible in the early stages. There is no feature shipped, no screen to demo, no before-and-after a stakeholder can immediately grasp. You are building the conditions for everything else to go faster, and that requires a different kind of selling. I learned to speak in velocity, in reduction of QA cycles, in the hours saved on a rebrand that would have taken weeks. Getting SLT buy-in and keeping PMs, engineers, and designers aligned around something abstract was its own discipline, and I underestimated how much of the role it would be.
+        </p>
+        <p className="type-body">
+          One of the things I am most proud of is mentoring a junior designer through this process. Watching her grow from contributor to forerunner on the AI workflow and take on ownership of the mobile foundations was more rewarding than any metric in the results grid.
+        </p>
+        <p className="type-body">
+          I also went deeper on the technical side than I expected, and I think that was the right call. I came into this project with a design lead who believed designers should stay firmly on the design side. I disagree. A design system manager who cannot follow an engineer into the implementation weeds is only solving half the problem. The token-to-Tailwind mapping, the Shadcn architecture, understanding why a legacy codebase made certain component structures impractical: none of that was optional.
+        </p>
+        <p className="type-body">
+          The last thing worth saying is about AI. I came in curious about it and left convinced it is the most significant shift in how this kind of work gets done. The speed of the rebrand stress test was not a lucky outcome. It was the result of building the architecture in a way that gave AI a real lever to pull. The contribution model and the horizon strategy are built to outlast me. Whether I am at Fitness Passport or not, the system has a path to maturity and a team who believes in it. That is the thing I set out to build.
+        </p>
       </section>
 
     </main>
