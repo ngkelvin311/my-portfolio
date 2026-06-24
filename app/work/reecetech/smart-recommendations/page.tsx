@@ -34,7 +34,7 @@ export default function SmartRecommendationsPage() {
           <div className="type-display-sm">
             <p>Smart Recommendations</p>
           </div>
-          <p className="type-body max-w-[600px]">
+          <p className="type-body">
             Tradespeople use slang. Reece catalogues use technical names. That
             gap meant customers couldn't find products they knew they needed. We
             designed a proactive recommendation engine that bridged the language
@@ -57,7 +57,7 @@ export default function SmartRecommendationsPage() {
 
           <div className="w-full rounded-lg overflow-hidden mt-2">
             <img
-              src="https://static.wixstatic.com/media/bb108e_c21362af9b1b4161ad53d39640a8db20~mv2.jpg"
+              src="/work/smart-recommendations/smart-recommendations-hero.jpg"
               alt="maX Smart Recommendations feature on iOS"
               className="w-full h-auto"
             />
@@ -97,11 +97,6 @@ export default function SmartRecommendationsPage() {
               </div>
             ))}
           </div>
-
-          <GapCard
-            title="Conversion and engagement metrics"
-            description="Add post-launch data here: recommendation acceptance rate, add-to-cart rate from suggestions, impact on average order value or items per order."
-          />
         </section>
       </Reveal>
 
@@ -115,17 +110,13 @@ export default function SmartRecommendationsPage() {
           <h2 className="type-body font-medium text-xl">
             Research and design for a model-driven feature
           </h2>
-          <p className="type-body max-w-[640px]">
+          <p className="type-body">
             I led research and owned the design. The recommendation model
             itself was built in collaboration with the data team. My job was to
             understand the problem deeply enough to brief the model correctly,
             then design a surface that made its output useful at the right
             moment in the shopping flow.
           </p>
-          <GapCard
-            title="Team structure and model collaboration"
-            description="Clarify how the design team and data team worked together. Who defined the model's inputs and outputs? How did you validate that an 80% accuracy rate was actually sufficient for the customer experience?"
-          />
         </section>
       </Reveal>
 
@@ -140,22 +131,21 @@ export default function SmartRecommendationsPage() {
             The product existed. The customer couldn't find it. Both sides
             were using different words.
           </h2>
-          <p className="type-body max-w-[640px]">
-            A plumber looking for a fitting says "15mm comp fitting". The
-            Reece catalogue says "copper compression fitting 15mm type A". Both
+          <p className="type-body">
+            A plumber looking for a fitting says "1/2 bpress tee". The
+            Reece catalogue says "B-Press Water Equal Tee 15mm". Branch staff type "15BPT". All 3 mean
             mean the same thing. But a keyword search on maX would match to one
-            and miss the other. The product was in the catalogue. It just wasn't
+            and miss the others. The product was in the catalogue. It just wasn't
             findable the way tradespeople actually look for it.
           </p>
-          <p className="type-body max-w-[640px]">
-            This is a mental model mismatch (Don Norman,{" "}
-            <em>The Design of Everyday Things</em>). The system had a model for
+          <p className="type-body">
+            This is a mental model mismatch. The system had a model for
             how products should be named. Customers had a completely different
             model for how to describe the things they buy. A search box
             alone couldn't bridge that gap, because both sides had to use the
             same words for it to work.
           </p>
-          <ul className="flex flex-col gap-2 type-body opacity-70 max-w-[560px]">
+          <ul className="flex flex-col gap-2 type-body opacity-70">
             {[
               "Technical catalogue language mismatching tradesperson terminology",
               "Customers searching for products that existed but not finding them",
@@ -182,7 +172,7 @@ export default function SmartRecommendationsPage() {
           <h2 className="type-body font-medium text-xl">
             Where the language actually lives.
           </h2>
-          <p className="type-body max-w-[640px]">
+          <p className="type-body">
             Guerilla research ran across Reece's branch network, covering
             multiple business units and states. The format was deliberate:
             watching customers at the counter, on-site and in-flow, rather than
@@ -190,22 +180,21 @@ export default function SmartRecommendationsPage() {
             used for products showed up in real interactions, not in retrospective
             recall.
           </p>
-          <p className="type-body max-w-[640px]">
-            This distinction matters. Caroline Jarrett's{" "}
-            <em>Surveys That Work</em> (2021) makes a clear case for asking
-            about behaviour over attitude. "How did you search for that
-            product" produces accurate data. "Do you find our search useful"
+          <p className="type-body">
+            This distinction matters. Asking about behaviour produces accurate
+            data. Asking about attitude does not. "How did you search for that
+            product" tells you something real. "Do you find our search useful"
             does not. In-branch observation gave us behaviour without asking
             for it at all.
           </p>
-          <p className="type-body max-w-[640px]">
+          <p className="type-body">
             Competitive analysis showed how other trade platforms handled the
             language gap. Most relied on search improvements: synonym libraries,
             better indexing, autocomplete. These are reactive solutions. They
             still require the customer to type something and get it right. We
             were looking for a proactive approach.
           </p>
-          <p className="type-body max-w-[640px]">
+          <p className="type-body">
             Maze automated usability testing with our research panel validated
             the recommendation placement and interaction model before build.
             We tested two placement hypotheses: suggestions on the product
@@ -216,9 +205,9 @@ export default function SmartRecommendationsPage() {
 
           <div className="grid grid-cols-3 gap-4">
             {[
-              { stat: "Guerilla", label: "in-branch research across states" },
-              { stat: "Maze", label: "automated usability testing" },
-              { stat: "Comp", label: "analysis of trade platform patterns" },
+              { stat: "Guerilla", label: "In-branch research across states" },
+              { stat: "Maze", label: "Automated usability testing" },
+              { stat: "Competitive", label: "Analysis of trade platform patterns" },
             ].map((item) => (
               <div
                 key={item.label}
@@ -254,7 +243,7 @@ export default function SmartRecommendationsPage() {
                   "The Maze tests showed that placement mattered more than we expected. Suggestions surfaced at the wrong point felt like noise. The same suggestions at the right moment in the shopping flow felt like a knowledgeable colleague saying 'don't forget this one'.",
               },
             ].map((item) => (
-              <div key={item.number} className="flex gap-6 max-w-[640px]">
+              <div key={item.number} className="flex gap-6">
                 <p className="type-meta opacity-30 pt-1 shrink-0">
                   {item.number}
                 </p>
@@ -278,25 +267,24 @@ export default function SmartRecommendationsPage() {
           <h2 className="type-body font-medium text-xl">
             Proactive, not reactive. Suggest before they search.
           </h2>
-          <p className="type-body max-w-[640px]">
+          <p className="type-body">
             The model analyses what a customer is currently adding and
             proactively surfaces products that typically accompany it, drawn
             from real purchase patterns across similar customers and jobs.
             Prediction accuracy is 80%, validated against actual order data.
           </p>
-          <p className="type-body max-w-[640px]">
-            The design principle here is progressive disclosure (Tog, AskTog):
-            surface relevant suggestions at the moment they're most useful,
-            not before a customer has decided on anything and not after they've
-            already placed the order. Timing makes a suggestion feel useful
-            rather than promotional.
+          <p className="type-body">
+            The design principle here is progressive disclosure: surface
+            relevant suggestions at the moment they're most useful, not before
+            a customer has decided on anything and not after they've already
+            placed the order. Timing makes a suggestion feel useful rather than
+            promotional.
           </p>
-          <p className="type-body max-w-[640px]">
-            The feature also applies Nielsen's recognition-over-recall
-            heuristic (Heuristic 6, 1994). Customers don't need to remember
-            the correct technical name for a complementary product. They see
-            it, recognise it, and add it. The cognitive load of recall is
-            replaced by the much lighter task of recognition.
+          <p className="type-body">
+            The feature also applies recognition over recall. Customers don't
+            need to remember the correct technical name for a complementary
+            product. They see it, recognise it, and add it. The cognitive load
+            of recall is replaced by the much lighter task of recognition.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
@@ -304,7 +292,7 @@ export default function SmartRecommendationsPage() {
               <p className="type-meta opacity-40">Recommendations while browsing</p>
               <div className="w-full rounded-lg overflow-hidden">
                 <img
-                  src="https://static.wixstatic.com/media/bb108e_e9c62a79503d47878c148421e37680a8~mv2.png"
+                  src="/work/smart-recommendations/smart-recommendations-browsing.png"
                   alt="Smart recommendations surfaced while browsing on iOS"
                   className="w-full h-auto"
                 />
@@ -314,7 +302,7 @@ export default function SmartRecommendationsPage() {
               <p className="type-meta opacity-40">Contextual placement</p>
               <div className="w-full rounded-lg overflow-hidden">
                 <img
-                  src="https://static.wixstatic.com/media/bb108e_0fd2282bfd62429f9e574a22d3349fcb~mv2.png"
+                  src="/work/smart-recommendations/smart-recommendations-context.png"
                   alt="Smart recommendations placement in context"
                   className="w-full h-auto"
                 />
@@ -326,14 +314,14 @@ export default function SmartRecommendationsPage() {
             <h3 className="type-body font-medium text-lg">
               Designing for an 80% model
             </h3>
-            <p className="type-body max-w-[640px]">
+            <p className="type-body">
               80% accuracy means 1 in 5 suggestions won't be relevant. The
               design accounts for this: suggestions are framed as complementary
               options, not instructions. The customer is always in control.
               Irrelevant suggestions are easy to dismiss and don't interrupt the
               core ordering flow.
             </p>
-            <p className="type-body max-w-[640px]">
+            <p className="type-body">
               The alternative, waiting for 100% accuracy, would have meant not
               shipping. 80% is useful. A customer who sees a relevant suggestion
               4 out of 5 times will form a positive habit around it. A customer
@@ -353,7 +341,7 @@ export default function SmartRecommendationsPage() {
           <h2 className="type-body font-medium text-xl">
             One surface is a proof of concept. Three is a system.
           </h2>
-          <p className="type-body max-w-[640px]">
+          <p className="type-body">
             The initial launch targeted active browsing on iOS and Android.
             The next phase expands to two additional surfaces where the model
             adds value at different moments in the ordering journey.
@@ -374,7 +362,7 @@ export default function SmartRecommendationsPage() {
                   "A customer's saved product list reflects their most recent job. The model can surface products that consistently appear alongside list items but aren't on the list yet. The list becomes a starting point, not a ceiling.",
               },
             ].map((item) => (
-              <div key={item.number} className="flex gap-6 max-w-[640px]">
+              <div key={item.number} className="flex gap-6">
                 <p className="type-meta opacity-30 pt-1 shrink-0">
                   {item.number}
                 </p>
@@ -395,7 +383,7 @@ export default function SmartRecommendationsPage() {
           <h2 className="type-body font-medium text-xl">
             Solve the right problem first. Then decide how.
           </h2>
-          <p className="type-body max-w-[640px]">
+          <p className="type-body">
             The temptation with a search problem is to fix search. Better
             autocomplete, synonym matching, improved indexing. Those are all
             legitimate tools. But they're reactive: they still require the
@@ -403,14 +391,14 @@ export default function SmartRecommendationsPage() {
             between how Reece names products and how tradespeople talk about
             them was too wide for better search to bridge alone.
           </p>
-          <p className="type-body max-w-[640px]">
+          <p className="type-body">
             The proactive recommendation approach worked because it removed
             the customer from the search problem entirely for complementary
             products. They didn't need to know the technical name. The model
             already knew what jobs typically needed, and the design surfaced
             it at the right moment.
           </p>
-          <p className="type-body max-w-[640px]">
+          <p className="type-body">
             The 80% accuracy conversation was worth having early. Stakeholders
             wanted higher. The case for launching at 80% came down to one
             question: is 80% more useful than nothing? For a customer who
