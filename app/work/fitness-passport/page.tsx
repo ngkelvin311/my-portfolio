@@ -1,6 +1,6 @@
+import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import Button from "@/components/Button";
-
 
 export const metadata = {
   title: "Fitness Passport — Kelvin Ng",
@@ -13,33 +13,33 @@ const projects = [
     title: "Design system from zero to adoption",
     description:
       "Built and shipped a design system from scratch across product and tech, ensuring adoption by the entire team to enable reliable speed and consistency.",
-    tags: ["Design Systems", "Component Library", "Tokens", "Documentation"],
+    tags: ["Design Systems", "Component Library", "Token alignment", "Documentation"],
     href: "/work/fitness-passport/design-system",
   },
   {
     number: "02",
-    title: "Signup and onboarding flow",
+    title: "Increasing New Member Conversion",
     description:
-      "Redesigned the end to end signup and onboarding experience to optimise member conversion, ensure compliance, and reduce legal risk. Increased conversion by 10%, and same day conversion by 180%",
-    tags: ["UX Design", "Research", "Conversion", "Compliance"],
-    href: "/work/fitness-passport/new-member-conversion"
+      "Redesigned the end to end signup and onboarding experience to optimise member conversion, ensure compliance, and reduce legal risk. Increased conversion by over 10%, and same day conversion by 180%",
+    tags: ["Design", "Research", "Conversion", "Compliance", "Legal Risk"],
+    href: "/work/fitness-passport/new-member-conversion",
   },
   {
-  number: "03",
-  title: "Employer Reporting Dashboard",
-  description:
-    "Discovery led to a pivot from a customer dashboard to an internal tool now used daily by customer facing teams, saving over $20k a year in manual reporting for our main stakeholders alone.",
-  tags: ["Discovery", "Internal Tool", "Data Design", "Stakeholder Research"],
-  href: "/work/fitness-passport/employer-reporting",
-},
-{
-  number: "04",
-  title: "Improving New Member Approvals",
-  description:
-    "The brief was to automate member approvals. The research said not yet. Workshops, data analysis, and facilitator interviews redirected the initiative from an expensive automation build to targeted improvements that shipped faster and benefited 100% of facilitators.",
-  tags: ["Research", "Workshop Facilitation", "Strategic Pivot"],
-  href: "/work/fitness-passport/Improved-approvals",
-},
+    number: "03",
+    title: "Employer Reporting Dashboard",
+    description:
+      "Discovery led to a pivot from a customer dashboard to an internal tool now used daily by customer facing teams, saving over $20k a year in manual reporting for our main stakeholders alone.",
+    tags: ["Discovery", "Internal Tool", "Data Design", "Stakeholder Research"],
+    href: "/work/fitness-passport/employer-reporting",
+  },
+  {
+    number: "04",
+    title: "Improving our Approval Process",
+    description:
+      "The brief was to automate member approvals. The research said not yet. Workshops, data analysis, and facilitator interviews redirected the initiative from an expensive automation build to targeted improvements that shipped faster and benefited all of our partners.",
+    tags: ["Design", "Research", "Workshop Facilitation", "Strategic Pivot"],
+    href: "/work/fitness-passport/Improved-approvals",
+  },
 ];
 
 export default function FitnessPassportPage() {
@@ -51,12 +51,12 @@ export default function FitnessPassportPage() {
       className="mx-auto w-full max-w-[1200px] px-6 sm:px-10 lg:px-16 pt-16 pb-32 flex flex-col gap-0"
     >
       <Reveal immediate delay={100}>
-        <a
-          href="/#experience"
+        <Link
+          href="/"
           className="type-meta inline-flex items-center gap-2 mb-12 opacity-60 hover:opacity-100 transition-opacity"
         >
           ← Back
-        </a>
+        </Link>
       </Reveal>
 
       <Reveal immediate delay={200}>

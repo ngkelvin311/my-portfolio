@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import ProtectedButton from "@/components/ProtectedButton";
 
@@ -42,12 +43,12 @@ export default function ReecePage() {
       className="mx-auto w-full max-w-[1200px] px-6 sm:px-10 lg:px-16 pt-16 pb-32 flex flex-col gap-0"
     >
       <Reveal immediate delay={100}>
-        <a
-          href="/#experience"
+        <Link
+          href="/"
           className="type-meta inline-flex items-center gap-2 mb-12 opacity-60 hover:opacity-100 transition-opacity"
         >
           ← Back
-        </a>
+        </Link>
       </Reveal>
 
       <Reveal immediate delay={200}>

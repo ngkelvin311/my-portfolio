@@ -35,7 +35,7 @@ export default function EmployerReportingPage() {
           <div className="type-display-sm">
             <p>Employer Reporting Dashboard</p>
           </div>
-          <p className="type-body max-w-[600px]">
+          <p className="type-body">
             The roadmap said build a customer-facing dashboard. Discovery said
             otherwise. We pivoted to an internal tool used by the entire team
             daily, saving over $20k a year in manual reporting and giving the
@@ -155,18 +155,18 @@ export default function EmployerReportingPage() {
         >
           <p className="type-tagline">My role</p>
           <h2 className="type-body font-medium text-xl">What I owned</h2>
-          <p className="type-body max-w-[640px]">
+          <p className="type-body">
             I led discovery alongside product: 11 interviews across B to A+
             employers over three weeks. I synthesised the findings, made the
             case to pivot, and led design of the dashboard from that foundation.
           </p>
           <div className="w-full rounded-lg overflow-hidden">
-    <img
-      src="/work/Employer-Reporting/team-structure.png"
-      alt="Team structure and my role in it"
-      className="w-full h-auto"
-    />
-  </div>
+            <img
+              src="/work/Employer-Reporting/team-structure.png"
+              alt="Team structure and my role in it"
+              className="w-full h-auto"
+            />
+          </div>
         </section>
       </Reveal>
 
@@ -180,17 +180,17 @@ export default function EmployerReportingPage() {
           <h2 className="type-body font-medium text-xl">
             40 hours a month. No standard format. No consistency.
           </h2>
-          <p className="type-body max-w-[640px]">
+          <p className="type-body">
             Every report was built from scratch. Each partnership manager had
             their own format, their own style, their own level of spreadsheet
             literacy. A and A+ employers got reports on a regular cadence.
             Everyone else got one on request, if they asked at all.
           </p>
-          <p className="type-body max-w-[640px]">
+          <p className="type-body">
             Across the team: 40 hours a month, $20,160 a year. To maintain a
             process that was already delivering inconsistent output.
           </p>
-          <ul className="flex flex-col gap-2 type-body opacity-70 max-w-[560px]">
+          <ul className="flex flex-col gap-2 type-body opacity-70">
             {[
               "No standardised format across the team",
               "Reports limited to A and A+ employers regularly, B tier on request",
@@ -206,7 +206,7 @@ export default function EmployerReportingPage() {
           </ul>
 
           <blockquote
-            className="type-body border-l-2 pl-5 italic opacity-80 max-w-[560px]"
+            className="type-body border-l-2 pl-5 italic opacity-80"
             style={{ borderColor: "rgb(var(--foreground))" }}
           >
             "Just my A's and A pluses, or B pluses. Takes me ages to do all
@@ -228,7 +228,7 @@ export default function EmployerReportingPage() {
           <h2 className="type-body font-medium text-xl">
             11 interviews. Two sides of the same relationship.
           </h2>
-          <p className="type-body max-w-[640px]">
+          <p className="type-body">
             Before designing anything, I led 45 to 60 minute discovery
             interviews over three weeks with product and engineering alongside.
             Three questions anchored the research: what data employers actually
@@ -276,7 +276,7 @@ export default function EmployerReportingPage() {
                   "Regular contact was about planning and relationship building. Data supported those conversations but did not drive them. The team needed better tools to walk in prepared, not more data to hand over.",
               },
             ].map((item) => (
-              <div key={item.number} className="flex gap-6 max-w-[640px]">
+              <div key={item.number} className="flex gap-6">
                 <p className="type-meta opacity-30 pt-1 shrink-0">{item.number}</p>
                 <div className="flex flex-col gap-2">
                   <p className="type-body font-medium">{item.finding}</p>
@@ -298,16 +298,16 @@ export default function EmployerReportingPage() {
           <h2 className="type-body font-medium text-xl">
             Building for employers would have been solving the wrong problem
           </h2>
-          <p className="type-body max-w-[640px]">
+          <p className="type-body">
             The original roadmap initiative was a customer-facing dashboard.
             Three weeks of research made it hard to justify.
           </p>
-          <p className="type-body max-w-[640px]">
+          <p className="type-body">
             Employers were clear: FP costs them nothing, so there is no
             pressure to measure it. Reporting was minimal, often just a
             paragraph. The quotes below say the rest.
           </p>
-          <p className="type-body max-w-[640px]">
+          <p className="type-body">
             A self-serve dashboard would be shipping a feature for a job
             employers were not trying to do. The real job was inside. Give the
             team the tools to use data better themselves.
@@ -358,7 +358,7 @@ export default function EmployerReportingPage() {
         >
           <p className="type-tagline">Design</p>
           <h2 className="type-body font-medium text-xl">Built around real workflows</h2>
-          <p className="type-body max-w-[640px]">
+          <p className="type-body">
             I anchored the design to an existing HR-focused organisation report.
             Real data, known use case, no designing in the abstract.
           </p>
@@ -398,19 +398,19 @@ export default function EmployerReportingPage() {
             <h3 className="type-body font-medium text-lg">
               A hierarchy built around how people read
             </h3>
-            <p className="type-body max-w-[640px]">
+            <p className="type-body">
               One rule: important to interesting, left to right, top to bottom.
             </p>
-            <p className="type-body max-w-[640px]">
+            <p className="type-body">
               KPIs anchor the top row. Memberships, penetration rate, member
               count, candidates, suspensions and cancellations. One glance,
               everything that matters before walking into a room.
             </p>
-            <p className="type-body max-w-[640px]">
+            <p className="type-body">
               A large membership over time chart follows. Context a stat cannot
               give. Growth, seasonality, launch impact.
             </p>
-            <p className="type-body max-w-[640px]">
+            <p className="type-body">
               Breakdowns come last, ordered by how often they come up in real
               conversations. Family type, program split, demographics, package
               mix, top facilities. Each one a question that used to require a
@@ -419,50 +419,12 @@ export default function EmployerReportingPage() {
           </div>
 
           {/* Workflow */}
-          <div className="flex flex-col gap-4 mt-4">
-            <h3 className="type-body font-medium text-lg">
-              From dashboard to shareable report
-            </h3>
-            <p className="type-body max-w-[640px]">
-              Five steps. Replacing what used to take six hours.
-            </p>
-            <ol className="flex flex-col gap-3 max-w-[560px]">
-              {[
-                {
-                  step: "Open the dashboard",
-                  note: "Available to the entire team from one internal URL",
-                },
-                {
-                  step: "Find the employer from the dropdown",
-                  note: "All accounts in one place, no spreadsheet hunting",
-                },
-                {
-                  step: "Filter by relevant categories if needed",
-                  note: "Date range, membership type, program, or location",
-                },
-                {
-                  step: "Export as a PDF",
-                  note: "One click generates a formatted, ready-to-share report",
-                },
-                {
-                  step: "Share to drive meaningful conversations",
-                  note: "In the meeting, over email, or on a Teams call",
-                },
-              ].map((item, i) => (
-                <li key={item.step} className="flex gap-4">
-                  <span
-                    className="type-meta opacity-30 shrink-0 pt-0.5"
-                    style={{ minWidth: "1.5rem" }}
-                  >
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <div className="flex flex-col gap-0.5">
-                    <p className="type-body font-medium">{item.step}</p>
-                    <p className="type-body opacity-50 text-sm">{item.note}</p>
-                  </div>
-                </li>
-              ))}
-            </ol>
+          <div className="w-full rounded-lg overflow-hidden">
+            <img
+              src="/work/Employer-reporting/dashboard-steps.png"
+              alt="New dashboard workflow, from report generation to presentation in meetings"
+              className="w-full h-auto"
+            />
           </div>
         </section>
       </Reveal>
@@ -475,11 +437,11 @@ export default function EmployerReportingPage() {
         >
           <p className="type-tagline">Validation</p>
           <h2 className="type-body font-medium text-xl">Tested with the people who use it</h2>
-          <p className="type-body max-w-[640px]">
+          <p className="type-body">
             Validated with internal teams before shipping. Post-launch, usage
             confirmed it had become part of the daily workflow.
           </p>
-         <EmployerReportingUsageCharts />
+          <EmployerReportingUsageCharts />
         </section>
       </Reveal>
 
@@ -488,27 +450,27 @@ export default function EmployerReportingPage() {
         <section className="flex flex-col gap-6 py-16">
           <p className="type-tagline">Reflection</p>
           <h2 className="type-body font-medium text-xl">What I'd do differently</h2>
-          <p className="type-body max-w-[640px]">
+          <p className="type-body">
             The discovery interviews did most of the heavy lifting. Employer
             quotes cut through internal assumptions faster than any slide deck.
             The insight was simple: employers were not going to log in and
             generate their own reports. FP was free. Nobody scrutinises what
             they do not pay for.
           </p>
-          <p className="type-body max-w-[640px]">
+          <p className="type-body">
             The case for pivoting had two sides. Customer evidence that the tool
             would go unused. And the cost of the status quo: hourly rates,
             engineering overhead, inconsistent branded reports going out the
             door. The brand fragmentation argument landed just as hard as the
             saving.
           </p>
-          <p className="type-body max-w-[640px]">
+          <p className="type-body">
             The third piece was data control. An internal tool meant the
             business could shape which metrics were surfaced and how the story
             was told. That reframe shifted it from an efficiency play to a
             business asset.
           </p>
-          <p className="type-body max-w-[640px]">
+          <p className="type-body">
             Everything was presented through workshops, not a single
             recommendation meeting. Letting stakeholders surface concerns before
             a decision meant they felt part of the direction. The pivot landed

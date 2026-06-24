@@ -90,11 +90,15 @@
                       <span>{entry.period}</span>
                     </div>
                   <p className="type-body mt-6">{entry.description}</p>
-  {entry.link && (
-    <div className="mt-4">
+ {entry.link && (
+  <div className="mt-4">
+    {entry.requiresAuth ? (
       <ProtectedButton href={entry.link}>View case studies</ProtectedButton>
-    </div>
-  )}
+    ) : (
+      <Button href={entry.link}>View work</Button>
+    )}
+  </div>
+)}
                   </div>
                 </Reveal>
               </React.Fragment>

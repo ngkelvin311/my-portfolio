@@ -126,7 +126,7 @@ export default function DesignSystemCaseStudy() {
         <div className="w-full rounded-lg overflow-hidden">
           <img
             src="/work/Design-system/ds-champions.png"
-            alt="Design System Chamipons Group"
+            alt="Design System Champions Group"
             className="w-full h-auto"
           />
         </div>
@@ -147,22 +147,17 @@ export default function DesignSystemCaseStudy() {
           />
           <StatCard
             value="91"
-            label="Total import instances across the codebase"
+            label="Total instances across non legacy codebase"
           />
           <StatCard
             value="Hours"
             label="Not days to complete a full brand theme change"
           />
           <StatCard
-            value="Over 70%"
-            label="Of manual email templates using the new Mailchimp template"
+            value="25"
+            label="Full component sets in code library "
           />
         </div>
-        <GapCard
-          title="Two more results to add"
-          description="How long did H1 take from blank slate to first components in production? And what is the confirmed timeline improvement on the legacy code project — two months vs eight months?"
-          emphasis="These two numbers belong in this grid. They are the strongest metrics in the case study."
-        />
       </section>
 
       {/* ── The problem ───────────────────────────────────── */}

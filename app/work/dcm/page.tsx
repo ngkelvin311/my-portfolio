@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import Reveal from "@/components/Reveal";
 
 export const metadata = {
@@ -39,12 +40,12 @@ export default function DCMPage() {
       className="mx-auto w-full max-w-[1200px] px-6 sm:px-10 lg:px-16 pt-16 pb-32 flex flex-col gap-0"
     >
       <Reveal immediate delay={100}>
-        <a
-          href="/#experience"
+        <Link
+          href="/"
           className="type-meta inline-flex items-center gap-2 mb-12 opacity-60 hover:opacity-100 transition-opacity"
         >
           ← Back
-        </a>
+        </Link>
       </Reveal>
 
       <Reveal immediate delay={200}>
@@ -71,7 +72,6 @@ export default function DCMPage() {
               className="grid grid-cols-1 tablet:grid-cols-2 gap-12 py-16 border-b border-dashed items-start"
               style={{ borderColor: "rgb(var(--border))" }}
             >
-              {/* Image */}
               <div
                 className="relative w-full rounded-lg overflow-hidden"
                 style={{ minHeight: "280px" }}
@@ -97,7 +97,6 @@ export default function DCMPage() {
                 )}
               </div>
 
-              {/* Text */}
               <div className="flex flex-col gap-4 justify-center">
                 <p className="type-meta opacity-40">0{i + 1}</p>
                 <p className="type-body-emphasis text-xl">{item.title}</p>

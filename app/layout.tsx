@@ -1,11 +1,16 @@
+// TypeScript may complain about side-effect CSS imports when no global CSS
+// declaration is present. Silence the error here as Next.js supports importing
+// global CSS in the app directory.
+// @ts-ignore
 import "./globals.css";
 import type { Metadata } from "next";
 import { Manrope, Roboto, Roboto_Mono, Geist } from "next/font/google";
 import StickyChips from "@/components/StickyChips";
 import { Analytics } from "@vercel/analytics/next";
 import { cn } from "@/lib/utils";
+import ClientWrapper from "@/components/ClientWrapper";
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -62,9 +67,6 @@ export const metadata: Metadata = {
   manifest: "/site.webmanifest",
 };
 
-// Inline script that runs synchronously before paint to pick the correct theme
-// based on the user's local time (or their stored manual choice).
-// Mirrors the autoThemeForTime logic in ThemeToolbar but keeps it dependency-free.
 const themeInitScript = `(function(){
   try {
     var stored = localStorage.getItem("portfolio-theme");
@@ -80,8 +82,6 @@ const themeInitScript = `(function(){
     var h = now.getHours();
     var m = now.getMinutes();
     var t = h + m / 60;
-
-    // Estimate sunrise/sunset from timezone offset (rough lat ~34)
     var offset = now.getTimezoneOffset() / -60;
     var lng = offset * 15;
     var lat = 34;
@@ -95,7 +95,6 @@ const themeInitScript = `(function(){
     var noon = 12 - lng / 15 + offset;
     var sr = noon - ha / 15;
     var ss = noon + ha / 15;
-
     var theme = "light";
     if (t >= 21 || t < 4) theme = "darker";
     else if (t >= 4 && t < sr) theme = "dark";
@@ -104,11 +103,8 @@ const themeInitScript = `(function(){
     } else if (t >= (sr + ss) / 2 && t < ss) {
       theme = ((t - (sr + ss) / 2) / (ss - (sr + ss) / 2)) > 0.5 ? "light" : "lighter";
     } else if (t >= ss && t < 21) theme = "dark";
-
     document.documentElement.dataset.theme = theme;
     localStorage.setItem("portfolio-theme", theme);
-
-    // Sync theme-color meta tag with active theme
     var bgMap = { lighter: "#ffffff", light: "#d4d4d8", dark: "#27272a", darker: "#18181b" };
     var meta = document.querySelector('meta[name="theme-color"]');
     if (meta) meta.setAttribute("content", bgMap[theme] || "#d4d4d8");
@@ -158,7 +154,7 @@ export default function RootLayout({
           Skip to content
         </a>
         <StickyChips />
-        {children}
+        <ClientWrapper>{children}</ClientWrapper>
         <Analytics />
       </body>
     </html>

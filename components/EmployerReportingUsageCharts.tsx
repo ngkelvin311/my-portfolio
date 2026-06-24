@@ -134,13 +134,13 @@ export function EmployerReportingUsageCharts() {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
       <UsageChart
-        label="Views per day"
+        label="Views per day (Mar–Jun 2026)"
         dataKey="views"
         yDomain={[0, 200]}
         yTicks={[0, 100, 200]}
       />
       <UsageChart
-        label="Unique viewers per day"
+        label="Unique viewers per day (Mar–Jun 2026)"
         dataKey="viewers"
         yDomain={[0, 20]}
         yTicks={[0, 10, 20]}

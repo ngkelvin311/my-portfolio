@@ -197,50 +197,11 @@ export default function NewMemberConversionPage() {
             as a focused, single-purpose flow.
           </p>
           {/* Journey map */}
-          <svg
-            width="100%"
-            viewBox="0 0 680 244"
-            aria-label="Existing sign-up journey — 7 steps"
-          >
-            <defs>
-              <marker id="jm-arrow" viewBox="0 0 10 10" refX={8} refY={5} markerWidth={6} markerHeight={6} orient="auto-start-reverse">
-                <path d="M2 1L8 5L2 9" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round"/>
-              </marker>
-            </defs>
-
-            {[
-              { x: 22, w: 155, cx: 99, label: "Select employer" },
-              { x: 197, w: 155, cx: 274, label: "Personal details" },
-              { x: 372, w: 130, cx: 437, label: "Choose plan" },
-              { x: 522, w: 135, cx: 589, label: "Bank details" },
-            ].map(({ x, w, cx, label }) => (
-              <g key={label}>
-                <rect x={x} y={40} width={w} height={44} rx={8} fill="none" stroke="currentColor" strokeWidth={0.5} strokeOpacity={0.3}/>
-                <text x={cx} y={62} textAnchor="middle" dominantBaseline="central" fontSize={13} fontWeight={500} fill="currentColor">{label}</text>
-              </g>
-            ))}
-
-            {[[177, 197], [352, 372], [502, 522]].map(([x1, x2]) => (
-              <line key={x1} x1={x1} y1={62} x2={x2} y2={62} stroke="currentColor" strokeWidth={1.5} strokeOpacity={0.35} markerEnd="url(#jm-arrow)"/>
-            ))}
-
-            <path d="M 589 84 L 589 130 L 472 130 L 472 170" fill="none" stroke="currentColor" strokeWidth={1.5} strokeOpacity={0.35} markerEnd="url(#jm-arrow)"/>
-
-            {[
-              { x: 392, w: 160, cx: 472, label: "T&Cs (2 pages)" },
-              { x: 217, w: 155, cx: 294, label: "Approval queue" },
-              { x: 22, w: 175, cx: 109, label: "Facilitator review" },
-            ].map(({ x, w, cx, label }) => (
-              <g key={label}>
-                <rect x={x} y={170} width={w} height={44} rx={8} fill="none" stroke="currentColor" strokeWidth={0.5} strokeOpacity={0.3}/>
-                <text x={cx} y={192} textAnchor="middle" dominantBaseline="central" fontSize={13} fontWeight={500} fill="currentColor">{label}</text>
-              </g>
-            ))}
-
-            {[[392, 372], [217, 197]].map(([x1, x2]) => (
-              <line key={x1} x1={x1} y1={192} x2={x2} y2={192} stroke="currentColor" strokeWidth={1.5} strokeOpacity={0.35} markerEnd="url(#jm-arrow)"/>
-            ))}
-          </svg>
+          <img
+            src="/work/New-member-conversion/sign-up-flow.png"
+            alt="Legacy signup and onboarding journey"
+            className="w-full h-auto rounded-lg"
+          />
 
           {/* Friction points */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
@@ -284,13 +245,21 @@ export default function NewMemberConversionPage() {
           style={{ borderColor: "rgb(var(--border))" }}
         >
           <p className="type-tagline">Testing</p>
-          <h2 className="type-body font-medium text-xl">Validated before shipping</h2>
+          <h2 className="type-body font-medium text-xl">Tested at 60%, not at the end</h2>
           <p>
-            20 participants recruited through Askable, aged 27 to 65, completed unmoderated usability testing via Maze over one week. Three core tasks tested the reordered flow. 94.7% success rate across all three tasks and
-            an average SEQ score of 6.5 confirmed the changes were working.
+            Before committing to the final design, I built a mid-fidelity
+            prototype to test the structural decisions while changing
+            direction was still cheap. 20 participants recruited through
+            Askable, aged 27 to 65, completed unmoderated usability testing
+            via Maze over one week. Three core tasks tested the reordered
+            flow. A 94.7% success rate across all tasks and an average SEQ
+            score of 6.5 confirmed the approach was right.
           </p>
           <p>
-            Areas that were changed after usability testing were further clarity around price and removing misleading patterns such as steppers at the top of the page.
+            Two things came out of testing that changed before the final
+            design was locked: pricing needed to be clearer at the point of
+            selection, and the progress stepper at the top of the page was
+            setting false expectations and removed entirely.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div
@@ -337,7 +306,13 @@ export default function NewMemberConversionPage() {
         >
           <p className="type-tagline">Design</p>
           <p>
-            The central design decision was reducing bulk and making it easier for customers to complete the signup flow. We did this by halving the number of questions, moving the bulky medical declaration to a later stage, letting users focus on the job at hand, signing up to the program.
+            Testing confirmed the structural direction. The final design
+            applied those validated decisions and resolved the two issues
+            testing surfaced: clearer pricing and the removal of the
+            misleading stepper. The central call was reducing bulk, halving
+            the number of questions and moving the medical declaration to a
+            later stage so members could focus on the job at hand, signing up
+            to the program.
           </p>
            <div className="grid grid-cols-2 gap-4">
   <div
