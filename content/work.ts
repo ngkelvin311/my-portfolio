@@ -13,7 +13,7 @@ export const work: WorkEntry[] = [
     company: "Fitness Passport",
     period: "2025 - Present",
     description:
-      "Leading product design for the employer experience at Fitness Passport, working across teams and stakeholders from small businesses to large corporates. I own the design system end to end, from zero to adoption across design and engineering. Beyond the system, I mentor junior designers and ship measurable work: a redesigned onboarding flow that improved conversion by 10% and reduced legal risk, a rebuilt map built for scale and mobile, and an internal tool that cut operational costs by over $20k a year.",
+      "Leading product design for the employer experience at Fitness Passport, working across teams and stakeholders from small businesses to large corporates. I own the design system end to end, from zero to adoption across design and engineering. Beyond the system, I mentor junior designers and ship measurable work: a redesigned onboarding flow that improved conversion by 10% and removed glaring legal risks, a rebuilt map built for scale and mobile, an internal tool that cut operational costs by over $20k a year and a redesigned approval process that reduced manual approvals by over 50%.",
     link: "/work/fitness-passport",
     requiresAuth: true,
   },

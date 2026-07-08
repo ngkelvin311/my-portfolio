@@ -400,7 +400,13 @@ export default function AutomatedApprovalsPage() {
             ))}
           </div>
 
-          <ImagePlaceholder label="Research synthesis board" height={240} />
+           <div className="w-full rounded-lg overflow-hidden">
+            <img
+              src="/work/Improved-approvals/member-approval-research-board.png"
+              alt="Redesigned approval interface overview"
+              className="w-full h-auto"
+            />
+          </div>
         </section>
       </Reveal>
 
